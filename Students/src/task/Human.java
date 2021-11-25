@@ -1,5 +1,7 @@
 package task;
 
+import java.util.Objects;
+
 public class Human {
 	private String name;
 	private String lastName;
@@ -38,6 +40,23 @@ public class Human {
 
 	public void setGender(Gender gender) {
 		this.gender = gender;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(gender, lastName, name);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Human other = (Human) obj;
+		return gender == other.gender && Objects.equals(lastName, other.lastName) && Objects.equals(name, other.name);
 	}
 
 	@Override

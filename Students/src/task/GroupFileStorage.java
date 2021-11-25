@@ -1,36 +1,17 @@
 package task;
 
 import java.io.BufferedReader;
-
 import java.io.File;
 import java.io.PrintWriter;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStream;
 
 public class GroupFileStorage {
-	private String baseDirectoryName = "C:\\Temp";
 
-	public GroupFileStorage() {
-		super();
-	}
-
-	public GroupFileStorage(String baseDirectoryName) {
-		this.baseDirectoryName = baseDirectoryName;
-	}
-
-	public String getBaseDirectoryName() {
-		return baseDirectoryName;
-	}
-
-	public void setBaseDirectoryName(String baseDirectoryName) {
-		this.baseDirectoryName = baseDirectoryName;
-	}
-
-	public void saveGroupToCSV(Group gr) throws IOException {
-		String fileName = baseDirectoryName + "\\" + gr.getName() + ".csv";
+	public static void saveGroupToCSV(Group gr) throws IOException {
+		String fileName = "C:\\Temp\\" + gr.getName() + ".csv";
 		try (OutputStream os = new FileOutputStream(fileName); PrintWriter groupFile = new PrintWriter(os)) {
 			for (Student student : gr.getStudents()) {
 				if (student != null) {
@@ -65,10 +46,5 @@ public class GroupFileStorage {
 			}
 		}
 		return null;
-	}
-
-	@Override
-	public String toString() {
-		return "GroupFileStorage [baseDirectoryName=" + baseDirectoryName + "]";
 	}
 }

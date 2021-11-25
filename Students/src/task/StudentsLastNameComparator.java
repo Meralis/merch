@@ -13,7 +13,7 @@ public class StudentsLastNameComparator implements Comparator {
 			return 1;
 		}
 		Student students1 = (Student) o1;
-		Student students2 = (Student) o2; 
+		Student students2 = (Student) o2;
 
 		String lastName1 = students1.getLastName();
 		String lastName2 = students2.getLastName();

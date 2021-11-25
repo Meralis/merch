@@ -1,5 +1,7 @@
 package task;
 
+import java.util.Objects;
+
 public class Student extends Human implements CSVConverter {
 	private String groupName;
 	private long id;
@@ -45,7 +47,27 @@ public class Student extends Human implements CSVConverter {
 	}
 
 	@Override
-	public Student fromCSVString (String str) {
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + Objects.hash(groupName, id);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Student other = (Student) obj;
+		return Objects.equals(groupName, other.groupName) && id == other.id && super.equals(obj);
+	}
+
+	@Override
+	public Student fromCSVString(String str) {
 		String[] words = str.split(",");
 		return new Student(Long.valueOf(words[0]), words[1], words[2], Gender.valueOf(words[3]));
 	}

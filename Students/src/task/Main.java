@@ -10,7 +10,7 @@ public class Main {
 		Group group = buildGroup();
 		group.setName("IT");
 		try {
-			for (int i = 0; i < 10; i++) {
+			for (int i = 0; i < 4; i++) {
 				group.addStudent(StudentBuilder.buildStudent());
 			}
 		} catch (GroupOverflowException e) {
@@ -22,17 +22,16 @@ public class Main {
 		String ln = sc.nextLine();
 		try {
 			Student myStudent = group.searchByLastName(ln);
-			System.out.println("The student is found: " + myStudent);
+			System.out.println("The student was found: " + myStudent);
 		} catch (NoSuchStudentException e) {
 			System.out.println("last name not found");
 		}
 		System.out.println("======Deleting student by id======");
 		group.chooseIdToDelete();
 
-		GroupFileStorage groupFileStorage = new GroupFileStorage();
-		groupFileStorage.saveGroupToCSV(group);
+		GroupFileStorage.saveGroupToCSV(group);
 
-		File fileCSV = new File(groupFileStorage.getBaseDirectoryName() + "\\" + group.getName() + ".csv");
+		File fileCSV = new File("C:\\Temp\\" + group.getName() + ".csv");
 		try {
 			GroupFileStorage.loadGroupFromCSV(fileCSV);
 		} catch (GroupOverflowException e) {
@@ -49,8 +48,10 @@ public class Main {
 		File foundFile = GroupFileStorage.findFileByGroupName(searchGroup, searchDir);
 		if (foundFile == null) {
 			System.out.println("No data found for group name " + searchGroup + " in folder " + searchDir);
-		} else
+		} else {
 			System.out.println("There is the file " + foundFile.getAbsolutePath());
+		}
+		System.out.println("The group doesn't have equal students: " + group.isStudentsUniq());
 	}
 
 	public static Group buildGroup() {

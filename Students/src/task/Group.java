@@ -2,6 +2,7 @@ package task;
 
 import java.util.Arrays;
 import java.util.InputMismatchException;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Group {
@@ -32,6 +33,27 @@ public class Group {
 
 	public void setStudents(Student[] students) {
 		this.students = students;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Arrays.hashCode(students);
+		result = prime * result + Objects.hash(name);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Group other = (Group) obj;
+		return Objects.equals(name, other.name) && Arrays.equals(students, other.students);
 	}
 
 	public void addStudent(Student student) throws GroupOverflowException {
@@ -79,6 +101,19 @@ public class Group {
 			System.out.println("Wrong input");
 		}
 		System.out.println(toString());
+	}
+
+	public boolean isStudentsUniq() {
+		for (int i = 0; i < students.length - 1; i++) {
+			if (students[i] != null) {
+				for (int j = i + 1; j < students.length; j++) {
+					if (students[i].equals(students[j])) {
+						return false;
+					}
+				}
+			}
+		}
+		return true;
 	}
 
 	@Override

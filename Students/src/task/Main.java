@@ -10,12 +10,13 @@ public class Main {
 		Group group = buildGroup();
 		group.setName("IT");
 		try {
-			for (int i = 0; i < 4; i++) {
+			for (int i = 0; i < 3; i++) {
 				group.addStudent(StudentBuilder.buildStudent());
 			}
 		} catch (GroupOverflowException e) {
 			System.out.println("Too many students in group");
 		}
+
 		System.out.println("======Searching student by last name======");
 		System.out.println("Input student's last name to search");
 		Scanner sc = new Scanner(System.in);
@@ -26,6 +27,7 @@ public class Main {
 		} catch (NoSuchStudentException e) {
 			System.out.println("last name not found");
 		}
+
 		System.out.println("======Deleting student by id======");
 		group.chooseIdToDelete();
 

@@ -1,19 +1,24 @@
 package task;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.InputMismatchException;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Group {
 	private String name;
-	private Student[] students = new Student[10];
+	private List<Student> students = new ArrayList<Student>();
 
 	public Group() {
 		super();
 	}
 
-	public Group(String name, Student[] students) {
+	public Group(String name, List<Student> students) {
 		super();
 		this.name = name;
 		this.students = students;
@@ -27,21 +32,17 @@ public class Group {
 		this.name = name;
 	}
 
-	public Student[] getStudents() {
+	public List<Student> getStudents() {
 		return students;
 	}
 
-	public void setStudents(Student[] students) {
+	public void setStudents(List<Student> students) {
 		this.students = students;
 	}
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + Arrays.hashCode(students);
-		result = prime * result + Objects.hash(name);
-		return result;
+		return Objects.hash(name, students);
 	}
 
 	@Override
@@ -53,37 +54,37 @@ public class Group {
 		if (getClass() != obj.getClass())
 			return false;
 		Group other = (Group) obj;
-		return Objects.equals(name, other.name) && Arrays.equals(students, other.students);
+		return Objects.equals(name, other.name) && Objects.equals(students, other.students);
 	}
 
 	public void addStudent(Student student) throws GroupOverflowException {
-		for (int i = 0; i < students.length; i++) {
-			if (students[i] == null) {
-				students[i] = student;
-				student.setGroupName(name);
-				return;
-			}
+		if (students.size() >= 10) {
+			throw new GroupOverflowException("Too many students in group");
+		} else {
+			student.setGroupName(name);
+			students.add(student);
 		}
-		throw new GroupOverflowException("Too many students in group");
 	}
 
 	public void deleteStudent(long id) {
-		for (int i = 0; i < students.length; i++) {
-			if (students[i] != null && students[i].getId() == id) {
-				students[i] = null;
+		Iterator<Student> itr = students.iterator();
+		for (; itr.hasNext();) {
+			Student studentToDelete = itr.next();
+			if (studentToDelete.getId() == id) {
+				students.remove(studentToDelete);
 				return;
 			}
 		}
 	}
 
 	public void sortStudentsByLastName() {
-		Arrays.sort(students, new StudentsLastNameComparator());
+		Collections.sort(students, new StudentsLastNameComparator());
 	}
 
 	public Student searchByLastName(String lastName) throws NoSuchStudentException {
-		for (int i = 0; i < students.length; i++) {
-			if (students[i] != null && students[i].getLastName().equals(lastName)) {
-				return students[i];
+		for (Student st : students) {
+			if (st.getLastName().equals(lastName)) {
+				return st;
 			}
 		}
 		throw new NoSuchStudentException("last name not found");
@@ -104,14 +105,9 @@ public class Group {
 	}
 
 	public boolean isStudentsUniq() {
-		for (int i = 0; i < students.length - 1; i++) {
-			if (students[i] != null) {
-				for (int j = i + 1; j < students.length; j++) {
-					if (students[i].equals(students[j])) {
-						return false;
-					}
-				}
-			}
+		Set<Student> set = new HashSet<Student>(students);
+		if (set.size() < students.size()) {
+			return false;
 		}
 		return true;
 	}
@@ -121,9 +117,6 @@ public class Group {
 		sortStudentsByLastName();
 		String print = " ";
 		for (Student student : students) {
-			if (student == null) {
-				continue;
-			}
 			print = "Name: " + student.getName() + "; " + "Last name: " + student.getLastName() + "; " + "Gender: "
 					+ student.getGender() + "; " + "Id: " + student.getId() + "; " + "Group name: " + name + " "
 					+ System.lineSeparator() + print;

@@ -2,9 +2,9 @@ package task;
 
 import java.util.Comparator;
 
-public class StudentsLastNameComparator implements Comparator {
+public class StudentsLastNameComparator implements Comparator<Student> {
 	@Override
-	public int compare(Object o1, Object o2) {
+	public int compare(Student o1, Student o2) {
 
 		if (o1 == null) {
 			return o2 == null ? 0 : -1;

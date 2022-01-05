@@ -14,12 +14,10 @@ public class GroupFileStorage {
 		String fileName = "C:\\Temp\\" + gr.getName() + ".csv";
 		try (OutputStream os = new FileOutputStream(fileName); PrintWriter groupFile = new PrintWriter(os)) {
 			for (Student student : gr.getStudents()) {
-				if (student != null) {
 					groupFile.println(student.toCSVString());
 				}
 			}
 		}
-	}
 
 	public static Group loadGroupFromCSV(File file) throws GroupOverflowException, IOException {
 		try (FileReader fileReader = new FileReader(file); BufferedReader buffer = new BufferedReader(fileReader)) {

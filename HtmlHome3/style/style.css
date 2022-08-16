@@ -1,0 +1,195 @@
+:root {
+  font-family: 'Inter', sans-serif;
+  font-size: 48px;
+}
+
+.header {
+  color: #0BBBD3;
+  text-align: center;
+  line-height: 2;
+}
+
+.header_span {
+  color: black;
+}
+
+.kharkiv_image {
+  background-image: url("../img/Uspenskiy_sobor.jpg");
+  height: 852px;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: relative;
+}
+
+.kharkiv_block {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 80px;
+  height: 388px;
+  display: flex;
+  align-items: center;
+}
+
+.kharkiv_block_flag {
+  background-image: url("../img/flag.png");
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 25px;
+}
+
+.kharkiv_block_text {
+  margin: -40px 0;
+  margin-left: 80px;
+  color: #FFFFFF;
+}
+
+.kharkiv_block_text_item {
+  font-size: 64px;
+  font-weight: bold;
+  margin: 40px 0;
+}
+
+.sights {
+  padding-left: 100px;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.underline_left {
+  background-color: #33B8F1;
+  margin-left: 100px;
+  margin-bottom: 200px;
+  height: 10px;
+  width: 360px;
+}
+
+.photos {
+  display: flex;
+}
+
+.first_photo {
+  border-radius: 30px;
+  float: right;
+  width: 28%;
+  min-height: 530px;
+  font-size: 32px;
+  margin-top: -80px;
+  margin-left: 100px;
+  margin-right: 20px;
+  box-shadow: 0px 4px 6px 5px rgba(0, 0, 0, 0.25);
+}
+
+.second_photo {
+  border-radius: 30px;
+  float: right;
+  width: 28%;
+  min-height: 530px;
+  font-size: 32px;
+  margin-top: -80px;
+  margin-left: 10px;
+  margin-right: 20px;
+  box-shadow: 0px 4px 6px 5px rgba(0, 0, 0, 0.25);
+}
+
+.third_photo {
+  border-radius: 30px;
+  float: right;
+  width: 28%;
+  min-height: 530px;
+  font-size: 32px;
+  margin-top: -80px;
+  margin-left: 10px;
+  box-shadow: 0px 4px 6px 5px rgba(0, 0, 0, 0.25);
+}
+
+.link_text {
+  font-size: 36px;
+  font-weight: bold;
+  color: #33B8F1;
+  text-decoration: none;
+}
+
+.text {
+  font-size: 40px;
+  line-height: 1.4;
+  color: #595050;
+}
+
+.slogan {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 70px;
+  margin-bottom: 15px;
+}
+
+.underline_center {
+  background-color: #33B8F1;
+  position: absolute;
+  left: 50%;
+  margin-left: -180px;
+  margin-bottom: 200px;
+  height: 10px;
+  width: 360px;
+}
+
+.bottom_photo {
+  text-align: center;
+}
+
+.button_support {
+  background-image: url("../img/button.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 400px;
+  text-align: center;
+  margin-bottom: 150px;
+  margin-top: -60px;
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.support {
+  text-decoration: none;
+}
+
+.footer {
+  background-color: #0A2DA9;
+  color: #0BBBD3;
+  font-size: 1rem;
+  text-align: center;
+  line-height: 3;
+  padding: 20px;
+  padding-bottom: 55px;
+}
+
+.footer_span {
+  color: #FFFFFF;
+}
+
+.contacts {
+  font-size: 0.5rem;
+  margin-top: -100px;
+  text-decoration: none;
+  color: black;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  margin: -50px;
+}
+
+.link {
+  background-color: #0931BF;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+  width: 70px;
+  height: 70px;
+}

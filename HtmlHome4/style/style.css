@@ -111,23 +111,6 @@ main {
     margin-bottom: 36px;
 }
 
-.card:hover {
-   background-color: #AEAEE2;
-   box-shadow: 0px 2px 20px 6px #AEAEE2;
-}
-
-.card:hover .card-more {
-   background: #EF075B;
-}
-
-.card:hover .card-star-white {
-   display: none;
-}
-
-.card:hover .card-star-yellow {
-    display: block;
-}
-
 .card-text-in-box-options {
     display: inline-flex;
     margin: 8px 0px 0px 102px;
@@ -146,36 +129,39 @@ main {
     font-size: 36px;
     color: #353C57;
     font-weight: 700;
-    border: 3px solid white;
-    border-left: none;
-    border-right: none;
-    border-top: none;
+    border: none;
+    border-bottom: 3px solid white;
 }
- 
+
 .card-more {
     position: absolute;
     right: -50px;
     bottom: 7px;
-    background-color:  #202846;
+    background-color: #202846;
     color: white;
     font-size: 24px;
     padding: 15px 39px;
     border-radius: 30px;
 }
 
-.card-star-white {
+.card-star {
     position: absolute;
     top: 10px;
     right: 10px;
     width: 50px;
 }
 
-.card-star-yellow {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 50px;
-    display: none;
+.card:hover {
+    background-color: #AEAEE2;
+    box-shadow: 0px 2px 20px 6px #AEAEE2;
+}
+
+.card-more:hover {
+    background: #EF075B;
+}
+
+.card-star-path:hover {
+    fill: #FFFF00;
 }
 
 .button {

@@ -12,7 +12,9 @@
 
 <body>
   <header class="flex">
-    <img id="top" class="logo-header" src="./img/photo_logo.png" alt="logo">
+    <div class="logo-header">
+      <img id="top" class="logo-header-img" src="./img/photo_logo.png" alt="logo">
+    </div>
       <ul class="menu">
         <li>
           <a href="#">ГОЛОВНА</a>
@@ -30,8 +32,10 @@
           <a href="#">ОСОБИСТИЙ КАБІНЕТ</a>
         </li>
       </ul>
-    <img class="image-header" src="./img/earth1.png" alt="earth">
-    <p class="image-header-text">UA</p>
+    <div class="image-header-block">
+      <img src="./img/earth1.png" alt="earth">
+      <p class="image-header-text">UA</p>
+    </div>
   </header>
 
   <main>
@@ -40,14 +44,15 @@
         <i id="#header">Забронювати будиночок</i>
       </span>
     </div>
-    <div class="navigation-title">
+    
+    <div class="navigation-title container">
       <span class="navigation-title-text">
         Оберіть місцерозташування
       </span>
       <img class="navigation-title-image" src="./img/arrow.png" alt="arrow-down">
     </div>
 
-    <div class="cards">
+    <div class="cards container">
       <div class="card">
         <div>
           <img class="card-image-options" src="./img/image_1.png" alt="Bacota">
@@ -159,6 +164,7 @@
         </div>
       </div>
     </div>
+
   </main>
 </body>
 

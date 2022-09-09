@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./normalize/normalize.css">
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style/style.css">
+    <title>Form</title>
+</head>
+<body>
+  <form>
+    <section class="information container">
+      <h3>Intake Main Flow</h3>
+      <p class="note"><span>* </span>Mandatory field</p>
+      <h4>Information</h4>
+      <div class="information-forms two-blocks">
+        <div class="information-left">
+          <p>
+            <label for="type">Intake Type<span>* (select)</span></label>
+            <br>
+            <select id="type" name="type">
+              <option value="referral">Referral</option>
+              <option value="referral">Other</option>
+            </select>
+          </p>
+          <p>
+            <label>phone</label>
+            <br>
+            <input class="correction-padding" type="tel" name="phone-number" placeholder="+380">
+          </p>
+          <p>
+            <label>email</label>
+            <br>
+            <input class="correction-padding" type="email" name="email" placeholder="email@com.ua">
+          </p>
+          <p>
+            <label for="registr">Application Registration (Optional)</label>
+            <br>
+            <select name="registr" id="registr" class="information-left-registr">
+              <option value="app116">APP0000116</option>
+              <option value="app117">APP0000117</option>
+              <option value="app118">APP0000118</option>
+            </select>
+          </p>
+          <p>
+            <label for="date">Additional Information Requested Date (Optional)</label>
+            <br>
+            <input type="date" id="date" value="2021-05-13">
+          </p>
+          <p>
+            <label>Remaining Days Before Referral is Purged <span class="small-text">(Optional)</span></label>
+            <br>
+            <input class="correction-padding" type="number" min="1" max="31" placeholder="" value="13">
+          </p>
+          <p>
+            <label for="payment">Fee Payment Date (Optional)</label>
+            <br>
+            <input type="date" id="payment" value="2021-05-13">
+          </p>
+          <p class="checkbox">
+            <input type="checkbox" checked value="Application Fee Processed">
+            <label>Application Fee Processed</label>
+          </p>
+        </div>
+        
+        <div class="information-right">
+          <p>
+            <label for="initiation">Enrollment Initiation Date jquery</label>
+            <br>
+            <input class="grey-block" type="date" id="initiation" value="2021-05-11" disabled>
+          </p>
+          <p>
+            <label for="application">Application Category<span>*</span></label>
+            <br>
+            <select name="category" id="application">
+              <option value="child-support">Child Support</option>
+              <option value="other">Other</option>
+              <option value="other">Other</option>
+              <option value="other">Other</option>
+              <option value="other">Other</option>
+            </select>
+          </p>
+          <p>
+            <label for="enrollment">Enrollment Submission Date (Optional)</label>
+            <br>
+            <input class="grey-block" type="date" id="enrollment" value="2021-05-11" disabled>
+          </p>
+          <p class="checkbox">
+            <input type="checkbox" value="purged">
+            <label>Purged</label>
+          </p>
+          <p>
+            <label for="parentity">Exempt from Paternity (Optional) (select)</label>
+            <br>
+            <select name="parentity" id="parentity">
+              <option value="no">No</option>
+              <option value="yes">Yes</option>
+            </select>
+          </p>
+          <p>
+            <label for="status">Enrollment Status (Optional)</label>
+            <br>
+            <select name="status" id="status">
+              <option value="worklisted">Worklisted</option>
+              <option value="other">Other</option>
+            </select>
+          </p>
+        </div>
+      </div>
+    </section>
+    <hr class="container">
+
+    <section class="maternity-information container">
+      <h4>Maternity Information</h4>
+      <div class="maternity-information-forms two-blocks">
+        <div class="maternity-information-left">
+          <p class="maternity-information-p checkbox">
+            <input type="checkbox" value="child-support">
+            <label>Are you requesting child support services for an unborn child?</label>
+          </p>
+        </div>
+
+        <div class="maternity-information-right">
+          <p>
+            <label for="parent">Other known biological parent? (Optional)</label>
+            <br>
+            <select name="parent" id="parent">
+              <option value="none">None</option>
+              <option value="other">Other</option>
+            </select>
+          </p>
+        </div>
+      </div>
+    </section>
+    <hr class="container">
+
+    <section class="official-use container">
+      <h4>Official Use</h4>
+      <div class="official-use-forms two-blocks">
+        <div class="official-use-left">
+          <p>
+            <label for="case">Case Category (select)</label>
+            <br>
+            <select name="case" id="case">
+              <option value="active-a">Active IV-A</option>
+              <option value="active-v">Active IV-B</option>
+            </select>
+          </p>
+          <p>
+            <label for="arrears">Arrears Only Indicator (Optional)</label>
+            <br>
+            <select name="arrears" id="arrears">
+              <option value="none">None</option>
+              <option value="other">Other</option>
+            </select>
+          </p>
+          <p>
+            <label for="country">Assigned County of Ownership (Optional)</label>
+            <br>
+            <select name="country" id="country">
+              <option value="none">None</option>
+              <option value="other">Other</option>
+            </select>
+          </p>
+          <p>
+            <label for="intergovermental">Intergovermental Case Status (details)</label>
+            <br>
+            <select name="intergovermental" id="intergovermental">
+              <option value="none">None</option>
+              <option value="other">Other</option>
+            </select>
+          </p>
+          <p>
+            <label for="handling">Special Handling Indicator for Applicant (Optional)</label>
+            <br>
+            <select name="handling" id="handling">
+              <option value="none">None</option>
+              <option value="other">Other</option>
+            </select>
+          </p>
+          <p>
+            <label for="handling-other">Special Handling Indicator for Other Parent (Optional)</label>
+            <br>
+            <select name="handling-other" id="handling-other">
+              <option value="none">None</option>
+              <option value="other">Other</option>
+            </select>
+          </p>
+        </div>
+        
+        <div class="official-use-right">
+          <p>
+            <label for="iv">IV-D Indicator*</label>
+            <br>
+            <select name="iv" id="iv" required>
+              <option value="">Non-IV-D</option>
+              <option value="iv-c">Non-IV-C</option>
+            </select>
+          </p>
+          <p>
+            <label for="integr">Intergovernmental Case Category (Optional)</label>
+            <br>
+            <select name="integr" id="integr">
+              <option value="none">None</option>
+              <option value="other">Other</option>
+            </select>
+          </p>
+          <p>
+            <label for="integr-type">Intergovernmental Case Type (Optional)</label>
+            <br>
+            <select name="integr-type" id="integr-type">
+              <option value="none">None</option>
+              <option value="other">Other</option>
+            </select>
+          </p>
+          <p class="search">
+            <label>Case Number</label>
+            <br>
+            <input class="correction-padding" type="search" placeholder="Search Case Number">
+            <img class="search-img" src="./img/Vector.png" alt="marnifying glass">
+          </p>
+          <p class="search">
+            <label>Referral Number</label>
+            <br>
+            <input class="correction-padding" type="search" placeholder="Search Referral Number">
+            <img class="search-img" src="./img/Vector.png" alt="marnifying glass">
+          </p>
+        </div>
+      </div> 
+    </section>
+    <hr class="container">
+
+    <section class="system-information container">
+      <h4>System Information</h4>
+      <div class="system-information-forms two-blocks">
+        <div class="system-information-left">
+          <p class="search">
+            <label>Enrollment Taken by User</label>
+            <br>
+            <input class="correction-padding" type="search" placeholder="Search Input">
+            <img class="search-img" src="./img/Vector.png" alt="marnifying glass">
+          </p>
+          <p class="search">
+            <label>Worker (Optional)</label>
+            <br>
+            <input class="correction-padding" type="search" placeholder="Search Input">
+            <img class="search-img" src="./img/Vector.png" alt="marnifying glass">
+          </p>
+        </div>
+
+        <div class="system-information-right">
+          <p class="search">
+            <label>Intake Supervisor (Optional)</label>
+            <br>
+            <input class="correction-padding" type="search" placeholder="Search Input">
+            <img class="search-img" src="./img/Vector.png" alt="marnifying glass">
+          </p>
+          <p class="search">
+            <label>Owner (Optional)</label>
+            <br>
+            <input class="correction-padding" type="search" value="Rajaneesh Banal">
+            <img class="search-img" src="./img/Vector.png" alt="marnifying glass">
+          </p>
+        </div>
+      </div>
+    </section>
+    <hr class="container">
+
+    <div class="button-next container">
+      <input type="submit" value="Next">
+    </div>
+
+  </form>
+</body>
+</html>

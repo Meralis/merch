@@ -1,0 +1,151 @@
+:root{
+    font-size: 10px;
+}
+
+body {
+    max-width: 900px;
+    padding: 0;
+    margin: 0 auto;
+    background-color: #F9F9F9;
+    font-family: 'Public Sans', sans-serif;
+    color: #171717;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+section {
+    font-size: 2rem;
+}
+
+.two-blocks {
+    display: flex;
+    justify-content: space-between;
+}
+
+span {
+    color:red;
+}
+
+h3 {
+    margin-top: 64px;
+    margin-bottom: 80px;
+}
+
+h4 {
+    margin-top: 32px;
+    margin-bottom: 12px;
+}
+
+label {
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+select, input {
+    width: 392px;
+    font-size: 1.6rem;
+    font-weight: 400;
+    border: 1px solid #ADADAD;
+    border-radius: 4px;
+    margin-top: 10px;
+    margin-bottom: 20px; 
+    box-sizing: border-box;
+    padding: 9px 10px;
+}
+
+.note {
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.information-left-registr {
+    color: #0050D8;
+}
+
+.information-right p:nth-child(4) {
+    margin-bottom: 48px;
+}
+
+.small-text {
+    font-size: 1.4rem;
+}
+
+.grey-block {
+    background-color: #EFEFEF;
+    color: #747474;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 27px;
+}
+
+.checkbox > input {
+    width: 31px;
+    height: 24px;
+    margin-right: 6px;
+    accent-color: #FF00FF;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#enrollment {
+    margin-bottom: 175px;
+}
+
+.correction-padding {
+    padding: 10px 10px;
+}
+
+.maternity-information-p {
+    width: 392px;
+    margin-top: 50px;
+} 
+
+.maternity-information-p > label {
+    margin-left: 5px;
+}
+
+.official-use-left p:last-child > label {
+    display: inline-block;
+    width: 392px;
+}
+
+.search {
+    position: relative;
+}
+
+.search-img {
+    position: absolute;
+    top: 40px;
+    left: 353px;
+}
+
+.system-information-right p:last-child > input {
+    color: #0050D8;
+}
+
+.button-next {
+    display: flex;
+    justify-content: right;
+    margin-top: 15px;
+    margin-bottom: 110px;
+}
+
+.button-next > input {
+    background-color: #0050D8;
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 22.4px;
+    color: #FFFFFF;
+    padding: 9px 0;
+    width: 69px;
+    border-radius: 4px;
+    text-align: center;
+}
+

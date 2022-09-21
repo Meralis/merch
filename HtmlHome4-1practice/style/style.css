@@ -12,6 +12,10 @@ p {
     margin: 0;
 }
 
+button {
+    border-width: 1px;
+}
+
 .container {
     max-width: 1440px;
     margin: 0 auto;
@@ -39,7 +43,6 @@ header {
     padding: 0 50px 0 0;
     justify-content: space-between;
 }
-
 
 .nav-item a {
     text-decoration: none;
@@ -76,18 +79,16 @@ header {
     font-size: 2.4rem;
 }
 
-.banner-btn {
+.button-light {
     font-family: 'Open Sans', sans-serif;
-    font-Weight: 300;
+    font-weight: 300;
     font-size: 2.4rem;
-    width: 240px;
-    padding-top: 40px;
-    text-align: center;
 }
 
-.banner-btn-edging {
-    border: 1px solid black;
+.button-shop-all {
+    margin-top: 40px;
     padding: 9px 12px;
+    background-color: #FFFFFF;
 }
 
 .banner-image {
@@ -117,9 +118,7 @@ header {
 }
 
 .sale-items {
-    margin-top: 23px;
-    margin-left: 70px;
-    margin-right: 70px;
+    margin: 23px 70px 0;
     display: flex;
     justify-content: space-between;
 }
@@ -127,13 +126,15 @@ header {
 .sale-item {
     background-color: #FFFFFF;
     width: 280px;
-    padding-bottom: 31px;
     text-align: center;
+}
+
+.sale-item-block {
+    padding: 32px 55px 31px;
 }
 
 .sale-item-image {
     width: 165px;
-    padding: 32px 62px 5px 53px;
 }
 
 .sale-item-font {
@@ -141,38 +142,16 @@ header {
     font-weight: 500;
     line-height: 35.57px;
 }
-.sale-item-text-first {
-    width: 220px;
-    padding-right: 30px;
-    padding-left: 30px;
-    padding-bottom: 6px;
-}
-
-.sale-item-text-second {
-    width: 170px;
-    padding-right: 55px;
-    padding-left: 55px;
+.sale-item-text {
     padding-bottom: 6px;
 }
 
 .sale-item-text-third {
-    width: 170px;
-    padding-top: 18px;
-    padding-right: 55px;
-    padding-left: 55px;
-    padding-bottom: 23px;
-}
-
-.sale-item-text-forth {
-    width: 170px;
-    padding-right: 55px;
-    padding-left: 55px;
-    padding-bottom: 6px;
+    padding: 18px 0 23px;
 }
 
 .sale-item-price {
-    padding-top: 6px;
-    padding-bottom: 15px;
+    padding: 6px 0 15px;
 }
 
 .sale-item-price-first {
@@ -186,25 +165,22 @@ header {
 }
 
 .add-to-cart-btn {
-    background-color: #A04955;
     width: 130px;
     height: 35px;
+    background-color: #A04955;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 82px;
-    margin-left: 68px;
+    margin-left: 20px;
+    padding: 0;
+    color: white;
+    font-size: 1.8rem;
 }
 
 .add-to-card-icon{
     width: 21px;
     height: 17.4px;
     margin-right: 6px;
-}
-
-.add-to-cart-btn-text {
-    color: white;
-    font-size: 1.8rem;
 }
 
 .banner-2-info {
@@ -230,21 +206,20 @@ header {
 }
 
 .banner-2-image {
-    padding-top: 90px;
-    padding-right: 60px;
-    padding-left: 70px;
+    padding: 90px 60px 0 70px;
 }
 
 .banner-two-images {
-    display: flex;
+    padding-bottom: 108px;
     background-color: #F1F1F1;
     margin-top: 100px;
-    justify-content: space-between;
 }
 
-.banner-two-images-left-block {
-    padding-left: 152px;
-    padding-top: 107px;
+.banner-two-images-block {
+    padding: 107px 152px 0;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
 }
 
 .left-image {
@@ -279,24 +254,8 @@ header {
     padding-bottom: 25px;
 }
 
-.banner-two-images-btn {
-    font-family: 'Open Sans', sans-serif;
-    font-Weight: 300;
-    font-size: 2.4rem;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-}
-
-.banner-two-images-btn-edging {
-    border: 1px solid rgba(0, 0, 0, 1); 
+.button-shop {
     padding: 9px 18px;
-    margin-bottom: 108px;
-}
-
-.banner-two-images-right-block {
-    padding-right: 152px;
-    padding-top: 107px;
 }
 
 .right-image {
@@ -336,7 +295,7 @@ header {
 
 .big-image-subtitle {
     font-family: 'Open Sans', sans-serif;
-    font-Weight: 300;
+    font-weight: 300;
     font-size: 2.4rem;
     line-height: 32.68px;
     color: #FFFFFF;
@@ -347,7 +306,7 @@ header {
 
 .big-image-btn {
     font-family: 'Open Sans', sans-serif;
-    font-Weight: 300;
+    font-weight: 300;
     font-size: 2.4rem;
     line-height: 32.68px;
     color: #FFFFFF;
@@ -355,9 +314,6 @@ header {
     margin-bottom: 40px;
     width: 405px;
     height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin-left: 152px;
 }
 
@@ -420,12 +376,9 @@ header {
     font-size: 1.8rem;
     color: #FFFFFF;
     background-color: #A04955;
-    margin-top: 15px;
-    margin-left: 36px;
-    margin-right: 36px;
+    margin: 15px 36px 38px;
     width: 242px;
     height: 40px;
-    margin-bottom: 38px;
     display: flex;
     justify-content: center;
     align-items: center;    
@@ -457,17 +410,8 @@ header {
     margin-bottom: 35px;
 }
 
-.about-us-block-btn {
-    font-family: 'Open Sans', sans-serif;
-    font-Weight: 300;
-    font-size: 2.4rem;
-    border: 1px solid #000000;
-    width: 261px;
-    padding-top: 11px;
-    padding-bottom: 11px; 
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+.button-about {
+    padding: 11px 71px;
 }
 
 .footer {

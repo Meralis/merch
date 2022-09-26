@@ -10,7 +10,6 @@
 }
 
 body {
-    max-width: 1920px;
     margin: 0 auto;
     background-color: #FFFFFF;
     font-weight: 700;
@@ -54,17 +53,20 @@ ul {
 }
 
 .header-logo {
-    width: 13.18vw;
+    width: auto;
     height: 12vh;
-    display: block;
     background-color: var(--white);
 }
 
-.header-navigation {
+.header-nav {
     width: 97%;
-    display: flex;
     background-color: var(--black);
+    display: flex;
     justify-content: flex-end;
+}
+
+.header-navigation {
+    display: flex;
     align-items: center;
 }
 
@@ -132,7 +134,7 @@ ul {
 
     from,
     to {
-        left: -100vw;
+        left: -200vw;
     }
 
     100% {
@@ -148,7 +150,7 @@ ul {
 
     from,
     to {
-        right: -100vw;
+        right: -200vw;
     }
 
     100% {
@@ -219,126 +221,42 @@ ul {
 }
 
 .services-roll-one {
-    top: 8.6%;
-    left: 15.13%;
-    animation: cirkle-one 10s cubic-bezier(.28, .41, .26, 1.07) infinite;
-}
-
-@keyframes cirkle-one {
-
-    from,
-    to {
-        top: 8.6%;
-        left: 15.13%;
-    }
-
-    25% {
-        top: 8.6%;
-        left: 59.7%;
-    }
-
-    50% {
-        top: 52.5%;
-        left: 59.7%;
-    }
-
-    75% {
-        top: 52.5%;
-        left: 15.13%;
-    }
+    top: 26vh;
+    left: 35%;
+    transform-origin: 100% center;
+    animation: cirkle 6s linear infinite; 
 }
 
 .services-roll-two {
-    top: 52.5%;
-    left: 15.13%;
-    animation: cirkle-two 10s cubic-bezier(.28, .41, .26, 1.07) infinite;
-}
-
-@keyframes cirkle-two {
-
-    from,
-    to {
-        top: 52.5%;
-        left: 15.13%
-    }
-
-    25% {
-        top: 8.6%;
-        left: 15.13%
-    }
-
-    50% {
-        top: 8.6%;
-        left: 59.7%;
-
-    }
-
-    75% {
-        top: 52.5%;
-        left: 59.7%;
-    }
+    top: 26vh;
+    left: 35%; 
+    animation: cirkle 6s linear infinite;
+    animation-delay: 1.5s;
 }
 
 .services-roll-three {
-    top: 8.6%;
-    right: 8.13%;
-    animation: cirkle-three 10s cubic-bezier(.28, .41, .26, 1.07) infinite;
-}
-
-@keyframes cirkle-three {
-
-    from,
-    to {
-        top: 8.6%;
-        right: 8.13%;
-    }
-
-    25% {
-        top: 52.5%;
-        right: 8.13%;
-
-    }
-
-    50% {
-        top: 52.5%;
-        right: 52.7%;
-    }
-
-    75% {
-        top: 8.6%;
-        right: 52.7%;
-    }
+    top: 26vh;
+    left: 35%;
+    animation: cirkle 6s linear infinite;
+    animation-delay: 3s;
 }
 
 .services-roll-four {
-    top: 52.5%;
-    right: 8.13%;
-    animation: cirkle-four 10s cubic-bezier(.28, .41, .26, 1.07) infinite;
+    top: 26vh;
+    left: 35%;
+    animation: cirkle 6s linear infinite;
+    animation-delay: 4.5s;
 }
 
-@keyframes cirkle-four {
+@keyframes cirkle {
 
-    from,
-    to {
-        top: 52.5%;
-        right: 8.13%;
-    }
-
-    25% {
-        top: 52.5%;
-        right: 52.7%;
-
-    }
-
-    50% {
-        top: 8.6%;
-        right: 52.7%;
-    }
-
-    75% {
-        top: 8.6%;
-        right: 8.13%;
-    }
+    0% {
+            transform: rotate(0deg) translateX(12.5vw) rotate(0deg);
+        }
+    
+        100% {
+            transform: rotate(360deg) translateX(12.5vw) rotate(-360deg);
+        }
 }
 
 .team {
@@ -350,7 +268,7 @@ ul {
 .team-title {
     line-height: 116.35px;
     text-align: center;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .team-cards {
@@ -370,7 +288,6 @@ ul {
     display: block;
     width: 16.8vw;
     height: 51vh;
-    position: relative;
 }
 
 .team-name {
@@ -388,7 +305,7 @@ ul {
     justify-content: center;
 }
 
-.team-cards>.team-card:hover > div {
+.team-cards>.team-card:hover > div:nth-child(2) {
     height: 14.35vh;
 }
 
@@ -487,11 +404,11 @@ iframe {
 
 .footer > div {
     text-align: center;
+    word-wrap: break-word;
 }
 
 .footer-contacts {
     width: 40%;
-    word-wrap: break-word;
 }
 
 .footer-shedule {

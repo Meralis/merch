@@ -1,0 +1,304 @@
+@import url(./style.css);
+
+@media screen and (min-width: 1620px) {
+    body {
+        max-width: 1620px;
+        margin: 0 auto;
+    }   
+}
+
+@media screen and (max-width: 1400px) {
+
+    .header-navigation a {
+        font-size: 2.8rem;
+    }
+    .services-text {
+        font-size: 2.6rem;
+    }
+
+    .team {
+        font-size: 4.6rem;
+    }
+
+   .team-card img {
+       width: 20vw;
+       height: 46vh;
+   }
+
+   .team-name {
+       width: 20vw;
+   }
+
+   .footer {
+       font-size: 2.6rem;
+   }
+}
+
+@media screen and (max-width: 1180px) {
+
+    .header-navigation a {
+        font-size: 2.1rem;
+    }
+
+    .services-text {
+        font-size: 2rem;
+    }
+
+    .team {
+        font-size: 4.4rem;
+    }
+
+    .footer {
+        font-size: 2.4rem;
+    }
+}
+
+@media screen and (max-width: 992px) {
+
+    .header {
+        height: 10vh;
+    }
+
+    .header-logo {
+        height: 10vh;
+    }
+
+    .header-navigation a {
+        font-size: 1.5rem;
+        margin: 0 19px;
+    }
+
+    .gallery {
+        height: auto;
+        flex-wrap: wrap;
+        row-gap: 5px;
+        margin-top: 40px;
+    }
+
+    .gallery > div {
+       width: 50%;
+    }
+
+    .gallery img {
+        margin: 0;
+        width: 70%;
+    }
+
+    .gallery-left-image {
+        order: 3;
+    }
+
+    .gallery-right-image {
+        order: 4;
+    }
+
+    .gallery-center-right {
+        order: 2;
+        align-items: center;
+    }
+
+    .gallery-center-left {
+        order: 1;
+        align-items: center;
+    }
+
+
+    .gallery-center>img:nth-child(2){
+        margin: 5px 0 0 0;
+    }
+
+    .services {
+        flex-direction: column-reverse;
+        align-items: center;
+        position: relative;
+    }
+
+    .services-big-image-block {
+        text-align: center;
+    }
+
+    .services-big-image {
+        width: 80%;
+    }
+
+    .services-rolls {
+        position: static;
+    } 
+
+    .services-rolls > div {
+        top: 59vh;
+        left: 44%;
+        width: 12%;
+    }
+
+    @keyframes cirkle {
+
+    0% {
+            transform: rotate(0deg) translateX(10.5vw) rotate(0deg);
+        }
+    
+        100% {
+            transform: rotate(360deg) translateX(10.5vw) rotate(-360deg);
+        }
+    }
+
+    .team {
+        height: 100%;
+    }
+
+    .team-title {
+        font-size: 1.6em;
+        line-height: 80px;
+    }
+
+    .team-cards {
+        justify-content: space-evenly;
+    }
+
+    .team-card {
+        width: 50%;
+    }
+
+    .team-card img{
+        width: 35vw;
+        height: 50vh;
+    } 
+
+    .team-cards {
+        flex-wrap: wrap;
+        row-gap: 50px;
+    }
+
+    .team-name {
+        width: 35vw;
+    }
+
+    .contact {
+        flex-direction: column;
+        row-gap: 20px;
+        font-size: 4rem;
+    }
+
+    .contact > div {
+        width: 100%;
+    }
+
+    .contact-title {
+        width: 100%;
+    }
+
+    .footer {
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .header {
+        height: 8vh;
+    }
+    
+    .header-logo {
+        height: 8vh;
+    }
+
+    .header-navigation a {
+        font-size: 1.5rem;
+        margin: 0 10px;
+    }
+
+    .gallery {
+        height: auto;
+        flex-direction: column;
+        row-gap: 3px;
+        margin-top: 3vh;
+    }
+
+    div.gallery-left-image img {
+        display: block;
+        animation: left-slide 2s linear;
+        width: 100%;
+        margin: 0;
+    }
+
+    .gallery-center {
+        animation: none;
+        width: 45vw;
+    }
+
+    .gallery-center>img:nth-child(1) {
+        animation: right-slide 2s linear;
+        width: 100%;
+        margin: 0;
+    }
+    
+    .gallery-center>img:nth-child(2) {
+        animation: left-slide 2s linear;
+        width: 100%;
+        margin: 3px 0 0 0;
+    }
+        
+    div.gallery-right-image img {
+        display: block;
+        animation: right-slide 2s linear;
+        margin: 0;
+        width: 100%;
+    }
+    
+    .gallery-left-image, .gallery-right-image {
+        width: 45vw;
+    }
+
+    .services-big-image {
+        display: none;
+    }
+
+    .services-rolls > div {
+        top: 24vh;
+        left: 40%;
+        width: 22%;
+    }
+
+    @keyframes cirkle {
+
+        0% {
+            transform: rotate(0deg) translateX(18.5vw) rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg) translateX(18.5vw) rotate(-360deg);
+        }
+    }
+
+    .team-title {
+        font-size: 1.5em;
+        line-height: 80px;
+    }
+
+    .team-card {
+        width: 360px;
+        text-align: center;
+    }
+
+    .team-cards {
+        row-gap: 40px;
+    }
+
+    .team-card img {
+        width: 100%;
+        height: auto; 
+   }
+
+    .team-name {
+        width: 360px;
+    }
+    
+    .contact {
+        flex-direction: column-reverse;
+        font-size: 3.6rem;
+    }
+
+    .footer {
+        font-size: 1.6rem;
+    }
+}

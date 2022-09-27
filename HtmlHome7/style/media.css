@@ -48,6 +48,16 @@
         font-size: 4.4rem;
     }
 
+    .team-card img {
+        width: 22vw;
+        height: 44vh;
+    }
+
+    .team-name {
+        width: 22vw;
+    }
+
+
     .footer {
         font-size: 2.4rem;
     }

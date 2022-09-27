@@ -21,6 +21,12 @@ a {
     text-decoration: none;
 }
 
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
 .container {
     width: 93.2%;
     margin: 0 auto;
@@ -35,8 +41,6 @@ a {
 
 .header-navigation {
     list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
     width: 40%;
     justify-content: space-between;
@@ -300,6 +304,7 @@ a {
     background-color: var(--orange);
     color: var(--black);
     box-sizing: border-box;
+    border-radius: 3px;
 }
 
 .works-picture {
@@ -309,8 +314,12 @@ a {
     justify-content: space-between;
 }
 
-.works-picture-top {
+.works-picture-column div {
     margin-bottom: 30px;
+}
+
+.works-picture-column div:last-child {
+    margin-bottom: 0;
 }
 
 .testimonials-text {
@@ -325,9 +334,9 @@ a {
 }
 
 .testimonials-card {
-    width: 346px;
+    width: 313px;
     background-color: #FFFFFF;
-    padding-left: 33px;
+    padding: 0 33px;
     border-radius: 7.93px;
 }
 
@@ -370,52 +379,48 @@ a {
 
 footer {
     background-color: #1C1C1C;
-    padding-top: 148px;
+    padding-top: 146px;
     padding-bottom: 90px;
 }
 
-.footer-list {
-    padding: 0;
-    margin-left: 50px;
+.footer {
     display: flex;
     font-family: var(--font-Work-Sans);
-    font-size: 2.16rem;
-    line-height: 31.89px;
-    color: #F5FBF2;
-    list-style: none;
     justify-content: space-between;
 }
 
-.footer-sublist {
-    margin-top: 20px;
-    padding: 0;
-    font-family: var(--font-Work-Sans);
+.footer-list {
     font-weight: 500;
     font-size: 1.8rem;
     line-height: 36.42px;
     color: #7B7B7B;
-    list-style: none;
+    width: 25%;
 }
 
-.footer-sublist a {
+.footer-list a {
     color: #7B7B7B;
 }
 
+.footer-list h3 {
+    margin: 0 0 20px 0;
+    line-height: 31.89px;
+    color: #F5FBF2;
+}
+
 .footer-first-list {
+    font-family: 'Poppins', sans-serif;
     font-size: 3.2rem;
     line-height: 32px;
     color: var(--orange);
+    width: 30%;
 }
 
 .footer-first-sublist {
     font-family: var(--font-Work-Sans);
+    margin-top: 30px;
     font-size: 1.6rem;
     font-weight: 600;
     line-height: 32.38px;
     color: #D4D4D4;
-    width: 95%;
-}
-
-.footer-last-sublist {
     width: 80%;
 }

@@ -1,0 +1,143 @@
+:root {
+    font-size: 10px;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+    line-height: 16.42px;
+    --color-white: #FFFFFF;
+    --color-green: #29A71E;
+    --color-red: #E13535;
+    --color-blue: #3675B0;
+    --color-black: #000000;
+}
+
+span {
+    font-weight: 600;
+}
+
+h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+ul {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.container {
+    width: 39.32%;
+    margin: 0 auto;
+    background-color: #FFB084;
+    border-radius: 20px;
+    padding: 27px 2.16% 70px;
+    box-sizing: border-box;
+    height: 540px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1.32fr 1fr 1fr;
+    grid-template-rows: repeat(6, 50px);
+    grid-auto-rows: auto;
+    column-gap: 18px;
+    row-gap: 28px;
+}
+
+.grid > div {
+    font-size: 1.4rem;
+}
+
+.grid-item {
+    background-color: var(--color-white);
+    border-radius: 20px;
+    padding: 15px 25px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+div.one {
+    grid-row: 1/5;
+    font-size: 1.2rem;
+    align-self: flex-start;
+    box-shadow: 7px 7px 0 0 var(--color-black);
+    height: 319px;
+}
+
+.one-title {
+    margin-top: 0;
+    text-align: center;
+}
+
+.one-image {
+    text-align: center;
+}
+
+.one-text {
+    margin-top: 20px;
+    line-height: 2.6rem;
+}
+
+.two {
+    grid-row: 5/7;
+    grid-column: 1;
+    font-weight: 700;
+    box-shadow: 7px 7px 0 0 var(--color-black);
+    align-self: flex-end;
+    height: 62px;
+}
+
+.three {
+    grid-column: 2/4;
+    grid-row: 1/3;
+    align-self: flex-start;
+    box-shadow: 7px 7px 0 0 var(--color-black);
+    height: 117px;
+}
+
+.four {
+    grid-column: 2;
+    grid-row: 3/5;
+    align-self: flex-start;
+    box-shadow: 7px 7px 0 0 var(--color-green);
+    height: 101px;
+}
+
+.four h4 {
+    color: var(--color-green);
+}
+
+.five {
+    grid-column: 3;
+    grid-row: 3/5;
+    align-self: flex-start;
+    box-shadow: 7px 7px 0 0 var(--color-red);
+    height: 165px;
+}
+
+.five h4 {
+    color: var(--color-red);
+}
+
+.six {
+    grid-column: 2;
+    grid-row: 4/7;
+    box-shadow: 7px 7px 0 0 var(--color-blue);
+    align-self: flex-end;
+    height: 151px;
+}
+
+ .six h4 {
+    color: var(--color-blue);
+ }
+
+ .seven {
+    grid-column: 3;
+    grid-row: 4/7;
+    align-self: flex-end;
+    box-shadow: 7px 7px 0 0 var(--color-black);
+    height: 89px;
+ }
+ 
+ 

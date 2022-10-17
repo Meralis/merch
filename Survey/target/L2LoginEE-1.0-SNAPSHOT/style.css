@@ -1,0 +1,23 @@
+fieldset {
+    width: 350px;
+    padding: 20px;
+}
+
+input {
+    margin-bottom: 20px;
+}
+
+label {
+    width: 150px;
+    display: inline-block;
+}
+
+table {
+    width: 15%;
+    border: 2px solid;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 2px solid;
+}

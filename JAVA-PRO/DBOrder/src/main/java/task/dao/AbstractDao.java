@@ -2,6 +2,7 @@ package task.dao;
 
 public abstract class AbstractDao {
     private int id;
+
     public AbstractDao() {
     }
 

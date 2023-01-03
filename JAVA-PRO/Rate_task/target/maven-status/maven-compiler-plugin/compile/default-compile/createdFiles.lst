@@ -1,0 +1,8 @@
+org\example\CurrencyUSD_.class
+org\example\CurrencyService.class
+org\example\MyContextListener.class
+org\example\CurrencyRate.class
+org\example\GetRateServlet.class
+org\example\App.class
+org\example\CurrencyService$1.class
+org\example\CurrencyUSD.class

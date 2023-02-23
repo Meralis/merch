@@ -1,9 +1,10 @@
 import React from 'react';
+import Test_Connection from "./Test_Connection";
 
 function App() {
     return (
         <div>
-            <h1>OK</h1>
+            <Test_Connection />
         </div>
     );
 }

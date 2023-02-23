@@ -12,15 +12,16 @@ public class Product {
     private Long id;
 
     @Column(nullable = false)
-    private String title;
+    private String title = "White Gold Plated Princess";
 
     @Column(nullable = false)
-    private Long price;
+    private Double price = 9.99;
 
     @Column(nullable = false)
-    private String category;
+    private String category = "jewelery";
 
-    private String description;
+    private String description = """
+            Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine's Day...""";
 
     public Long getId() {
         return id;
@@ -38,11 +39,11 @@ public class Product {
         this.title = title;
     }
 
-    public Long getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(Long price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 

@@ -1,11 +1,11 @@
-import React from 'react';
-import Test_Connection from "./Test_Connection";
+import Products from "./components/Products";
+import {Container} from "react-bootstrap";
 
 function App() {
     return (
-        <div>
-            <Test_Connection />
-        </div>
+        <Container>
+            <Products />
+        </Container>
     );
 }
 

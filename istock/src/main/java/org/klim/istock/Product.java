@@ -13,25 +13,25 @@ public class Product {
     private String title;
 
     @Column(nullable = false)
-    private Double price ;
+    private Double price;
 
     @Column(nullable = false)
     private String category;
 
     private String description;
 
-    private String imagePath;
+    private String image;
 
     public Product() {
     }
 
-    public Product(Long id, String title, Double price, String category, String description, String imagePath) {
+    public Product(Long id, String title, Double price, String category, String description, String image) {
         this.id = id;
         this.title = title;
         this.price = price;
         this.category = category;
         this.description = description;
-        this.imagePath = "";
+        this.image = "";
     }
 
     public Long getId() {
@@ -66,16 +66,15 @@ public class Product {
         return description;
     }
 
-    public String getImagePath() {
-        return imagePath;
+    public String getImage() {
+        return image;
     }
 
-    public void setImagePath(String imagePath) {
-        this.imagePath = imagePath;
+    public void setImage(String imagePath) {
+        this.image = imagePath;
     }
 
     public void setDescription(String description) {
         this.description = description;
-
     }
 }

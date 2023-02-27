@@ -15,6 +15,8 @@ public class ProductService {
     }
 
     public List<Product> findAll() {
-      return productRepository.findAll();
+        List<Product> productItems = productRepository.findAll();
+        productItems.forEach(product -> product.setImagePath("../src/components/static/" + product.getId() + ".jpg"));
+        return productItems;
     }
 }

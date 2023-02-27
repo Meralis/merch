@@ -1,34 +1,42 @@
 package org.klim.istock;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.sql.Blob;
 
 @Entity
+@Table(name = "products")
 public class Product {
     @Id
     @GeneratedValue
     private Long id;
 
     @Column(nullable = false)
-    private String title = "White Gold Plated Princess";
+    private String title;
 
     @Column(nullable = false)
-    private Double price = 9.99;
+    private Double price ;
 
     @Column(nullable = false)
-    private String category = "jewelery";
+    private String category;
 
-    private String description = """
-            Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine's Day...""";
+    private String description;
+
+    @Lob
+    private Blob image;
+
+    public Product() {
+    }
+
+    public Product(Long id, String title, Double price, String category, String description) {
+        this.id = id;
+        this.title = title;
+        this.price = price;
+        this.category = category;
+        this.description = description;
+    }
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getTitle() {

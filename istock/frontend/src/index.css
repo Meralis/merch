@@ -1,0 +1,9 @@
+.cart-block {
+    background: white;
+    position: fixed;
+    right: 0;
+    top: 15%;
+    border: 3px solid black;
+    border-radius: .5rem;
+    z-index: 5;
+}

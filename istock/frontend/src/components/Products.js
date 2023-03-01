@@ -2,7 +2,6 @@ import {useEffect, useState} from "react";
 import {Col, Row} from "react-bootstrap";
 import Product from "./Product";
 
-
 function Products() {
     const [products, setProducts] = useState([]);
 

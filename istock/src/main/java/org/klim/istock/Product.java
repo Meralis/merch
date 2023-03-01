@@ -1,6 +1,7 @@
 package org.klim.istock;
 
 import javax.persistence.*;
+import java.net.URL;
 
 @Entity
 @Table(name = "products")

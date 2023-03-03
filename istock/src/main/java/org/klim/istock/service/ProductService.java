@@ -1,7 +1,7 @@
-package org.klim.istock.services;
+package org.klim.istock.service;
 
-import org.klim.istock.Product;
-import org.klim.istock.ProductRepository;
+import org.klim.istock.entity.Product;
+import org.klim.istock.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

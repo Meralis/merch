@@ -1,4 +1,4 @@
-package org.klim.istock;
+package org.klim.istock.entity;
 
 import javax.persistence.*;
 

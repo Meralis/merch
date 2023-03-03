@@ -54,8 +54,8 @@ function Products() {
     function removeFromCart(id) {
         const newProducts = products.map(product => ({
             ...product,
-            count: 1,
-            addedToCart: id === product.id ? false : product.addedToCart
+            addedToCart: id === product.id ? false : product.addedToCart,
+            count: id === product.id ? 1 : product.count
         }))
         setProducts(newProducts);
         // saveProducts(newProducts);

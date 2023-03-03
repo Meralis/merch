@@ -1,7 +1,7 @@
-package org.klim.istock.controllers;
+package org.klim.istock.controller;
 
-import org.klim.istock.Product;
-import org.klim.istock.services.ProductService;
+import org.klim.istock.entity.Product;
+import org.klim.istock.service.ProductService;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

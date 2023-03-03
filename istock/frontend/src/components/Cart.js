@@ -1,16 +1,19 @@
-import {Badge} from "react-bootstrap";
+import {ListGroup} from "react-bootstrap";
+import CartItem from "./CartItem";
+import Total from "./Total";
 
-function Cart({products, removeFromCart}) {
+function Cart({products, removeFromCart, changeCount}) {
     return <div className={products.length ? 'cart-block p-3' : 'd-none'}>
-        <h3>Кошик</h3>
-        <ul className={"my-4"}>
-            {products.map(product => <li>
-                {product.title} (${product.price.toFixed(2)})
-                <Badge variant="danger"
-                       className={'bg-danger cursor-pointer text-white'}
-                       onClick={() => removeFromCart(product.id)}>Видалити</Badge>
-            </li>)}
-        </ul>
+        <h3>Cart</h3>
+        <ListGroup className={'my-4'}>
+            {products.map(product => <CartItem
+                key={product.id}
+                product={product}
+                changeCount={changeCount}
+                removeFromCart={removeFromCart}
+            />)}
+            <Total products={products}/>
+        </ListGroup>
     </div>;
 }
 

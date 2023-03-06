@@ -1,6 +1,6 @@
 package org.klim.istock.controller;
 
-import org.klim.istock.entity.Product;
+import org.klim.istock.DTO.ProductDTO;
 import org.klim.istock.service.ProductService;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,18 +9,18 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class MyController {
+//@RequestMapping("/product")
+public class ProductController {
     private final ProductService productService;
 
-    public MyController(ProductService productService) {
+    public ProductController(ProductService productService) {
         this.productService = productService;
     }
 
-    @GetMapping("/")
+    @GetMapping("/products")
     @CrossOrigin
-    public List<Product> getAllProducts() {
-//        new HttpHeaders().setCacheControl("no-cache, no-store, must-revalidate");
-
+    public List<ProductDTO> getAllProducts() {
         return productService.findAll();
     }
 }
+//        new HttpHeaders().setCacheControl("no-cache, no-store, must-revalidate");

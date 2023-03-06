@@ -1,12 +1,38 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import App from './App';
+import {createBrowserRouter, RouterProvider,} from "react-router-dom";
+import Products from "./components/Products";
+import App from "./App";
+import Contacts from "./components/static/Contacts";
+import {Container} from "react-bootstrap";
+import ErrorPage from "./components/static/ErrorPage";
 import './index.css'
+import ProductItem from "./components/ProductItem";
+
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <App/>,
+        errorElement: <ErrorPage/>
+    },
+    {
+        path: "/products",
+        element: <Products/>
+    }, {
+        path: "/product/:productId",
+        element: <ProductItem/>
+    }, {
+        path: '/contacts',
+        element: <Contacts/>
+    }
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
-        <App/>
+        <Container className={'bg-white'}>
+            <RouterProvider router={router}/>
+        </Container>
     </React.StrictMode>
 );

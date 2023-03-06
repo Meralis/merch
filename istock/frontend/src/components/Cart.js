@@ -7,7 +7,7 @@ function Cart({products, removeFromCart, changeCount}) {
         <h3>Cart</h3>
         <ListGroup className={'my-4'}>
             {products.map(product => <CartItem
-                key={product.id}
+                key={product.productId}
                 product={product}
                 changeCount={changeCount}
                 removeFromCart={removeFromCart}

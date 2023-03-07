@@ -6,7 +6,7 @@ import ClientContext from "../context/ClientContext";
 
 function Products() {
     const [products, setProducts] = useState([]);
-    const [client, setClient] = useState({});
+    // const [client, setClient] = useState({});
     // const [categories, setCategories] = useState([]);
     // const [selectedCategory, setSelectedCategory] = useState('');
 
@@ -77,13 +77,13 @@ function Products() {
     return <>
         <Row>
             <Col xs={12}>
-                <ClientContext.Provider value={{client}}>
+                {/*<ClientContext.Provider value={{client}}>*/}
                     <Cart
                         changeCount={changeCount}
                         products={products.filter(product => product.addedToCart)}
                         removeFromCart={removeFromCart}
                     />
-                </ClientContext.Provider>
+                {/*</ClientContext.Provider>*/}
             </Col>
             {/*<SelectCategories categories={categories} setSelectedCategory={setSelectedCategory}/>*/}
 

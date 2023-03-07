@@ -1,4 +1,4 @@
-import {ListGroup} from "react-bootstrap";
+import {Button, ListGroup} from "react-bootstrap";
 import CartItem from "./CartItem";
 import Total from "./Total";
 
@@ -13,6 +13,11 @@ function Cart({products, removeFromCart, changeCount}) {
                 removeFromCart={removeFromCart}
             />)}
             <Total products={products}/>
+            <div className="mb-2">
+                <Button variant="success" size="lg">
+                    Оформити замовлення
+                </Button>{' '}
+            </div>
         </ListGroup>
     </div>;
 }

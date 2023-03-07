@@ -2,10 +2,11 @@ import {useEffect, useState} from "react";
 import {Col, Row} from "react-bootstrap";
 import Product from "./Product";
 import Cart from "./Cart";
-import ProductItem from "./ProductItem";
+import ClientContext from "../context/ClientContext";
 
 function Products() {
     const [products, setProducts] = useState([]);
+    const [client, setClient] = useState({});
     // const [categories, setCategories] = useState([]);
     // const [selectedCategory, setSelectedCategory] = useState('');
 
@@ -76,10 +77,13 @@ function Products() {
     return <>
         <Row>
             <Col xs={12}>
-                <Cart
-                    changeCount={changeCount}
-                    products={products.filter(product => product.addedToCart)}
-                    removeFromCart={removeFromCart}/>
+                <ClientContext.Provider value={{client}}>
+                    <Cart
+                        changeCount={changeCount}
+                        products={products.filter(product => product.addedToCart)}
+                        removeFromCart={removeFromCart}
+                    />
+                </ClientContext.Provider>
             </Col>
             {/*<SelectCategories categories={categories} setSelectedCategory={setSelectedCategory}/>*/}
 

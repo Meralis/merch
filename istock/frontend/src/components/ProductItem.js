@@ -7,14 +7,14 @@ function ProductItem(addToCart, removeFromCart) {
     const [product, setProduct] = useState({});
     useEffect(() => {
         if ({productId}) {
-            fetch('http://localhost:8080/products/' + productId).then(data => data.json()).then(data => {
+            fetch('http://localhost:8080/product/' + productId).then(data => data.json()).then(data => {
                 setProduct(data);
             })
         }
-    })
+    },[])
     return <>
-        <Card style={{width: '18rem'}}>
-            <Card.Img variant="top" src={product.image}/>
+        <Card className={'productCard'} >
+            <Card.Img  src={product.imageUrl} style={{height: '25rem', width: '20rem'}}/>
             <Card.Body>
                 <Card.Title>{product.title}</Card.Title>
                 <Card.Text>{product.description}</Card.Text>

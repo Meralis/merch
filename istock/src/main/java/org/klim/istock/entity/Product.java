@@ -1,14 +1,11 @@
 package org.klim.istock.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @Data
-@NoArgsConstructor
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_seq")
@@ -17,7 +14,7 @@ public class Product {
 
     private String title;
 
-    private Double price;
+    private Integer price;
 
     private String description;
 

@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS order_item;
+DROP TABLE IF EXISTS orders;
 DROP TABLE IF EXISTS client;
 
 DROP SEQUENCE IF EXISTS client_id_seq;
@@ -19,4 +21,4 @@ CREATE TABLE client
 );
 
 INSERT INTO client (status, first_name, last_name, email, phone)
-VALUES ('ADMIN', 'Lucy', 'Klim', 'mail@gmail.com', '322223');
+VALUES ('ACTIVE', 'Lucy', 'Klim', 'mail@gmail.com', '322223');

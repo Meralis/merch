@@ -12,7 +12,7 @@ function Product({product, addToCart, removeFromCart}) {
                     <Card.Title>{product.title}</Card.Title>
                 </Link>
                 <p>Category: {product.category}</p>
-                <p>${product.price.toFixed(2)}</p>
+                <p>${product.price}</p>
             </div>
             {product.addedToCart ?
                 <Button variant="danger" onClick={() => removeFromCart(product.productId)}>Видалити</Button> :

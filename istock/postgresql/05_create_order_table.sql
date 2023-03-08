@@ -1,8 +1,12 @@
+DROP TABLE IF EXISTS order_item;
 DROP TABLE IF EXISTS orders;
 
 DROP SEQUENCE IF EXISTS order_id_seq;
 
-CREATE SEQUENCE order_id_seq;
+CREATE SEQUENCE order_id_seq
+    MINVALUE 1
+    START WITH 1
+    INCREMENT BY 1;
 
 CREATE TABLE orders (
   order_id INTEGER DEFAULT nextval('order_id_seq') NOT NULL,

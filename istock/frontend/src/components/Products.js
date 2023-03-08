@@ -14,7 +14,7 @@ function Products() {
 
         const savedCart = localStorage.getItem('cartItems');
 
-        fetch('http://localhost:8080/products').then(data => data.json()).then(data => {
+        fetch('http://localhost:8080/product').then(data => data.json()).then(data => {
             if (savedCart) {
                 let savedItems = JSON.parse(savedCart);
                 for (let product of data) {

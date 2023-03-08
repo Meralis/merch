@@ -2,7 +2,10 @@ DROP TABLE IF EXISTS order_item;
 
 DROP SEQUENCE IF EXISTS order_item_id_seq;
 
-CREATE SEQUENCE order_item_id_seq;
+CREATE SEQUENCE order_item_id_seq
+    MINVALUE 1
+    START WITH 1
+    INCREMENT BY 1;
 
 CREATE TABLE order_item (
   order_item_id INTEGER DEFAULT nextval('order_item_id_seq') NOT NULL,

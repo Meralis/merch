@@ -12,7 +12,7 @@ CREATE TABLE product
     product_id integer NOT NULL DEFAULT nextval('product_seq'),
     description text,
     image_url varchar(255),
-    price double precision,
+    price integer,
     title varchar(255),
     CONSTRAINT products_pkey PRIMARY KEY (product_id)
 )

@@ -23,7 +23,7 @@ public class ProductController {
         this.modelMapper = modelMapper;
     }
 
-    @GetMapping("/products")
+    @GetMapping("/product")
     @CrossOrigin
     public List<ProductDTO> getAllProducts() {
         return productService.findAll().stream().map(this::toDto).collect(toList());

@@ -2,7 +2,7 @@ import {Badge, Button, ListGroup} from "react-bootstrap";
 
 function CartItem({product, changeCount, removeFromCart}) {
     return <ListGroup.Item>
-        {product.title} (${product.price.toFixed(2)})
+        {product.title} (${product.price})
         <div className={'d-flex align-items-center justify-content-between'}>
             <div>
                 <Button variant={'primary'} size={'sm'}
@@ -13,7 +13,7 @@ function CartItem({product, changeCount, removeFromCart}) {
                         onClick={() => changeCount(product.productId, product.count + 1)}>+</Button>
             </div>
             <div>
-                <b>${(product.count * product.price).toFixed(2)}</b>
+                <b>${(product.count * product.price)}</b>
             </div>
             <Badge variant="danger"
                    className={'ml-3 cursor-pointer bg-danger text-white'}

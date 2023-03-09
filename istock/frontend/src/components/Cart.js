@@ -1,6 +1,7 @@
-import {Button, ListGroup} from "react-bootstrap";
+import {ListGroup} from "react-bootstrap";
 import CartItem from "./CartItem";
 import Total from "./Total";
+import RedirectToOrder from "./RedirectToOrder";
 
 function Cart({products, removeFromCart, changeCount}) {
     return <div className={products.length ? 'cart-block p-3' : 'd-none'}>
@@ -14,9 +15,7 @@ function Cart({products, removeFromCart, changeCount}) {
             />)}
             <Total products={products}/>
             <div className="mb-2">
-                <Button variant="success" size="lg">
-                    Оформити замовлення
-                </Button>{' '}
+                <RedirectToOrder/>
             </div>
         </ListGroup>
     </div>;

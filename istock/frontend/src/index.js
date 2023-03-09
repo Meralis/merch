@@ -9,6 +9,7 @@ import {Container} from "react-bootstrap";
 import ErrorPage from "./components/static/ErrorPage";
 import './index.css'
 import ProductItem from "./components/ProductItem";
+import Order from "./components/Order";
 
 const router = createBrowserRouter([
     {
@@ -24,6 +25,9 @@ const router = createBrowserRouter([
         }, {
             path: '/contacts',
             element: <Contacts/>
+        }, {
+            path: '/order',
+            element: <Order/>
         }]
     },
 ]);

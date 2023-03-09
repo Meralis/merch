@@ -20,7 +20,7 @@ public class Order {
     private String comments;
     private LocalDateTime created;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
 

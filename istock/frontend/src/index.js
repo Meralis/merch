@@ -9,7 +9,7 @@ import {Container} from "react-bootstrap";
 import ErrorPage from "./components/static/ErrorPage";
 import './index.css'
 import ProductItem from "./components/ProductItem";
-import Order from "./components/Order";
+import OrderForm from "./components/OrderForm";
 
 const router = createBrowserRouter([
     {
@@ -27,7 +27,7 @@ const router = createBrowserRouter([
             element: <Contacts/>
         }, {
             path: '/order',
-            element: <Order/>
+            element: <OrderForm/>
         }]
     },
 ]);

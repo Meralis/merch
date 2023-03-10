@@ -1,9 +1,11 @@
 package org.klim.istock.controller;
 
+import org.klim.istock.DTO.OrderDTO;
 import org.klim.istock.service.ClientService;
 import org.klim.istock.util.ModelMapperUtil;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -18,7 +20,7 @@ public class OrderController {
     }
 
     @PutMapping("/order")
-    public void someMethod() {
-        System.out.println("!!!");
+    public void buildOrder(@RequestBody OrderDTO orderDTO) {
+         orderDTO.setComments("aaa");
     }
 }

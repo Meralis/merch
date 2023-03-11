@@ -11,7 +11,7 @@ function Basket({products, removeFromBasket, changeCount}) {
                 key={product.productId}
                 product={product}
                 changeCount={changeCount}
-                removeFromCart={removeFromBasket}
+                removeFromBasket={removeFromBasket}
             />)}
             <Total products={products}/>
             <div className="mb-2">

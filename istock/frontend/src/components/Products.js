@@ -81,7 +81,7 @@ function Products() {
                     <Basket
                         changeCount={changeCount}
                         products={products.filter(product => product.addedToBasket)}
-                        removeFromCart={removeFromBasket}
+                        removeFromBasket={removeFromBasket}
                     />
                 {/*</ClientContext.Provider>*/}
             </Col>

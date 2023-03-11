@@ -1,7 +1,7 @@
 import {Button, Col, Form, Row} from "react-bootstrap";
 import React from "react";
 
-export default function OrderForm() {
+export default function OrderForm({basketItems}) {
     const [firstName, setFirstName] = React.useState('');
 
     const [lastName, setLastName] = React.useState('');
@@ -62,18 +62,18 @@ export default function OrderForm() {
 
 
 
-//     async sendOrderData() {
-//         const formData = new FormData;
-//         formData.append("firstName", this.state.firstName);
+    // async sendOrderData() {
+    //     const formData = new FormData;
+    //     formData.append("firstName", this.state.firstName);
 
 
-//         const response = await fetch('http://localhost:8080/order', {
-//             method: 'PUT',
-//             headers: {'Content-Type': 'application/json'},
-//             body: JSON.stringify({
-//
-//             })
-//         });
-//         const data = await response.json();
+        const response = await fetch('http://localhost:8080/order', {
+            method: 'PUT',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+
+            })
+        });
+         const data = await response.json();
 
 

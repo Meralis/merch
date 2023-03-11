@@ -1,8 +1,10 @@
 import {ListGroup} from "react-bootstrap";
 
-function OrderCardItem({product}) {
+function OrderCardItem({productToOrder}) {
+    console.log(productToOrder)
     return <ListGroup.Item>
-        {/*<div>{product.title}</div>*/}
+      <div>{productToOrder.title}</div>
+
     </ListGroup.Item>
 }
 export default OrderCardItem;

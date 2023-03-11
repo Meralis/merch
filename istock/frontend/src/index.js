@@ -10,6 +10,7 @@ import ErrorPage from "./components/static/ErrorPage";
 import './index.css'
 import ProductItem from "./components/ProductItem";
 import OrderForm from "./components/OrderForm";
+import Order from "./components/Order";
 
 const router = createBrowserRouter([
     {
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
             element: <Contacts/>
         }, {
             path: '/order',
-            element: <OrderForm/>
+            element: <Order/>
         }]
     },
 ]);

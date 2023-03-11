@@ -1,7 +1,7 @@
 import {Button, Card, Col} from "react-bootstrap"
 import {Link} from "react-router-dom";
 
-function Product({product, addToCart, removeFromCart}) {
+function Product({product, addToBasket, removeFromBasket}) {
     return <Col sm={6} md={4} lg={3} className={'d-flex mt-3'}>
         <Card className={'d-flex flex-column p-3 align-items-start'}>
             <div className={'flex-grow-1'}>
@@ -14,9 +14,9 @@ function Product({product, addToCart, removeFromCart}) {
                 <p>Category: {product.category}</p>
                 <p>${product.price}</p>
             </div>
-            {product.addedToCart ?
-                <Button variant="danger" onClick={() => removeFromCart(product.productId)}>Видалити</Button> :
-                <Button variant="success" onClick={() => addToCart(product.productId)}>До кошика</Button>}
+            {product.addedToBasket ?
+                <Button variant="danger" onClick={() => removeFromBasket(product.productId)}>Видалити</Button> :
+                <Button variant="success" onClick={() => addToBasket(product.productId)}>До кошика</Button>}
         </Card>
     </Col>
 }

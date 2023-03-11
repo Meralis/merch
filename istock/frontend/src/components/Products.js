@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import {Col, Row} from "react-bootstrap";
 import Product from "./Product";
-import Cart from "./Cart";
+import Basket from "./Basket";
 import ClientContext from "../context/ClientContext";
 
 function Products() {
@@ -12,19 +12,19 @@ function Products() {
 
     useEffect(() => {
 
-        const savedCart = localStorage.getItem('cartItems');
+        const savedBasket = localStorage.getItem('basketItems');
 
         fetch('http://localhost:8080/product').then(data => data.json()).then(data => {
-            if (savedCart) {
-                let savedItems = JSON.parse(savedCart);
+            if (savedBasket) {
+                let savedItems = JSON.parse(savedBasket);
                 for (let product of data) {
                     const savedProduct = savedItems.filter(savedItem => product.productId === savedItem.productId);
-                    product.addedToCart = savedProduct.length;
+                    product.addedToBasket = savedProduct.length;
                     product.count = savedProduct.length ? savedProduct[0].count : 1;
                 }
                 setProducts(data);
             } else {
-                setProducts(data.map(product => ({...product, addedToCart: false, count: 1})));
+                setProducts(data.map(product => ({...product, addedToBasket: false, count: 1})));
             }
 
             // getAllCategories(data);///чи можна так?????????
@@ -38,19 +38,19 @@ function Products() {
     //     setCategories(categories);
     // }
 
-    function addToCart(productId) {
+    function addToBasket(productId) {
         const newProducts = products.map(product => ({
             ...product,
-            addedToCart: productId === product.productId ? true : product.addedToCart
+            addedToBasket: productId === product.productId ? true : product.addedToBasket
         }))
         setProducts(newProducts);
         saveProducts(newProducts);
     }
 
-    function removeFromCart(productId) {
+    function removeFromBasket(productId) {
         const newProducts = products.map(product => ({
             ...product,
-            addedToCart: productId === product.productId ? false : product.addedToCart,
+            addedToBasket: productId === product.productId ? false : product.addedToBasket,
             count: productId === product.productId ? 1 : product.count
         }))
         setProducts(newProducts);
@@ -58,11 +58,11 @@ function Products() {
     }
 
     function saveProducts(updatedProducts) {
-        const productsToSave = updatedProducts.filter(product => product.addedToCart).map(product => ({
+        const productsToSave = updatedProducts.filter(product => product.addedToBasket).map(product => ({
             productId: product.productId,
             count: product.count
         }));
-        localStorage.setItem('cartItems', JSON.stringify(productsToSave));
+        localStorage.setItem('basketItems', JSON.stringify(productsToSave));
     }
 
     function changeCount(productId, newCount) {
@@ -78,10 +78,10 @@ function Products() {
         <Row>
             <Col xs={12}>
                 {/*<ClientContext.Provider value={{client}}>*/}
-                    <Cart
+                    <Basket
                         changeCount={changeCount}
-                        products={products.filter(product => product.addedToCart)}
-                        removeFromCart={removeFromCart}
+                        products={products.filter(product => product.addedToBasket)}
+                        removeFromCart={removeFromBasket}
                     />
                 {/*</ClientContext.Provider>*/}
             </Col>
@@ -90,7 +90,7 @@ function Products() {
             {/*{products.filter(product => product.category === selectedCategory || !selectedCategory)*/}
 
             {products.map(product => <Product key={product.productId} product={product}
-                                              addToCart={addToCart} removeFromCart={removeFromCart}
+                                              addToBasket={addToBasket} removeFromBasket={removeFromBasket}
             />)}
         </Row>
     </>

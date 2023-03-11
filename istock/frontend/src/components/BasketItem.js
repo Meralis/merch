@@ -1,6 +1,6 @@
 import {Badge, Button, ListGroup} from "react-bootstrap";
 
-function CartItem({product, changeCount, removeFromCart}) {
+function BasketItem({product, changeCount, removeFromBasket}) {
     return <ListGroup.Item>
         {product.title} (${product.price})
         <div className={'d-flex align-items-center justify-content-between'}>
@@ -17,9 +17,9 @@ function CartItem({product, changeCount, removeFromCart}) {
             </div>
             <Badge variant="danger"
                    className={'ml-3 cursor-pointer bg-danger text-white'}
-                   onClick={() => removeFromCart(product.productId)}>Remove</Badge>
+                   onClick={() => removeFromBasket(product.productId)}>Remove</Badge>
         </div>
     </ListGroup.Item>
 }
 
-export default CartItem;
+export default BasketItem;

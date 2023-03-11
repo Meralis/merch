@@ -1,17 +1,17 @@
 import {ListGroup} from "react-bootstrap";
-import CartItem from "./CartItem";
+import BasketItem from "./BasketItem";
 import Total from "./Total";
 import RedirectToOrder from "./RedirectToOrder";
 
-function Cart({products, removeFromCart, changeCount}) {
-    return <div className={products.length ? 'cart-block p-3' : 'd-none'}>
-        <h3>Cart</h3>
+function Basket({products, removeFromBasket, changeCount}) {
+    return <div className={products.length ? 'basket-block p-3' : 'd-none'}>
+        <h3>Basket</h3>
         <ListGroup className={'my-4'}>
-            {products.map(product => <CartItem
+            {products.map(product => <BasketItem
                 key={product.productId}
                 product={product}
                 changeCount={changeCount}
-                removeFromCart={removeFromCart}
+                removeFromCart={removeFromBasket}
             />)}
             <Total products={products}/>
             <div className="mb-2">
@@ -21,4 +21,4 @@ function Cart({products, removeFromCart, changeCount}) {
     </div>;
 }
 
-export default Cart;
+export default Basket;

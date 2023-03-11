@@ -2,7 +2,7 @@ import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {Button, Card} from "react-bootstrap";
 
-function ProductItem(addToCart, removeFromCart) {
+function ProductItem(addToBasket, removeFromBasket) {
     const {productId} = useParams();
     const [product, setProduct] = useState({});
     useEffect(() => {
@@ -18,9 +18,9 @@ function ProductItem(addToCart, removeFromCart) {
             <Card.Body>
                 <Card.Title>{product.title}</Card.Title>
                 <Card.Text>{product.description}</Card.Text>
-                {/*{product.addedToCart ?*/}
-                {/*    <Button variant="danger" onClick={() => removeFromCart(product.productId)}>Видалити</Button> :*/}
-                {/*    <Button variant="success" onClick={() => addToCart(product.productId)}>До кошика</Button>}*/}
+                {/*{product.addedToBasket ?*/}
+                {/*    <Button variant="danger" onClick={() => removeFromBasket(product.productId)}>Видалити</Button> :*/}
+                {/*    <Button variant="success" onClick={() => addToBasket(product.productId)}>До кошика</Button>}*/}
             </Card.Body>
         </Card>
     </>

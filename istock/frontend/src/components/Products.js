@@ -61,13 +61,11 @@ const [products, setProducts] = useContext(ProductContext);
         <Row>
             <Col xs={12}>
                 {/*<ClientContext.Provider value={{client}}>*/}
-                <ProductContext.Provider value={{products}}>
                     <Basket
                         changeCount={changeCount}
                         products={products.filter(product => product.addedToBasket)}
                         removeFromBasket={removeFromBasket}
                     />
-                </ProductContext.Provider>
             </Col>
             {/*<SelectCategories categories={categories} setSelectedCategory={setSelectedCategory}/>*/}
 

@@ -1,25 +1,43 @@
 import {Button, Col, Form, Row} from "react-bootstrap";
-import React from "react";
+import React, {useCallback, useMemo, useState} from "react";
 
 export default function OrderForm({basketItems}) {
-    const [firstName, setFirstName] = React.useState('');
 
-    const [lastName, setLastName] = React.useState('');
+    const [firstName, setFirstName] = useState('');
 
-    const [email, setEmail] = React.useState('');
+    const [lastName, setLastName] = useState('');
 
-    const [phone, setPhone] = React.useState('');
+    const [email, setEmail] = useState('');
 
-    const [address, setAddress] = React.useState('');
+    const [phone, setPhone] = useState('');
 
-    const handleSubmit = React.useCallback((e) => {
-        console.log('имя', firstName);
+    const [address, setAddress] = useState('');
+
+    const handleSubmit = useCallback((e) => {
         e.preventDefault();
     }, [firstName, lastName, email, phone, address])
 
-    const isSubmitActive = React.useMemo(() => {
+    const isSubmitActive = useMemo(() => {
         return firstName !== '' && lastName !== '' && email !== '' && phone !== '' && address !== '';
     }, [firstName, lastName, email, phone, address])
+
+    const clientDTO = {status: '', firstName: firstName, lastName: lastName, email: email, phone: phone};
+
+    // basketItems  [{"productId":1,"count":1},{"productId":8,"count":2}]
+    // const orderItemDTO = [{product: '', order: '', quantity: 0, amount: 0}];
+
+
+    const orderItemDTO = basketItems.map(basketItem => ({
+        product: basketItem.productId,
+        order: '',
+        quantity: basketItem.count,
+        amount: 0
+    }));
+
+    // const orderItemDTO = basketItems.map(basketItem => (
+    //     console.log(basketItem)
+    // ));
+     console.log('orderItemDTO ', orderItemDTO);
 
 
     return (
@@ -40,7 +58,8 @@ export default function OrderForm({basketItems}) {
             <Row>
                 <Form.Group as={Col} controlId="email">
                     <Form.Label>Email</Form.Label>
-                    <Form.Control type="email" value={email} name="email" onChange={(e) => setEmail(e.target.value)}/>
+                    <Form.Control type="email" value={email} name="email"
+                                  onChange={(e) => setEmail(e.target.value)}/>
                 </Form.Group>
                 <Form.Group as={Col} controlId="phone">
                     <Form.Label>Телефон</Form.Label>
@@ -51,7 +70,8 @@ export default function OrderForm({basketItems}) {
             <div className={'mt-4'}><h3>Доставлення</h3></div>
             <Form.Group controlId="address">
                 <Form.Label>Адреса</Form.Label>
-                <Form.Control value={address} name="address" onChange={(e) => setAddress(e.target.value)}/>
+                <Form.Control value={address} name="address"
+                              onChange={(e) => setAddress(e.target.value)}/>
             </Form.Group>
             <Button variant="primary" type="submit" className={'mt-4'} disabled={!isSubmitActive}>
                 Відправити
@@ -61,19 +81,14 @@ export default function OrderForm({basketItems}) {
 }
 
 
+async function sendOrderData() {
+    const response = await fetch('http://localhost:8080/order', {
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({})
+    });
+    const data = await response.json();
+}
 
-    // async sendOrderData() {
-    //     const formData = new FormData;
-    //     formData.append("firstName", this.state.firstName);
-
-
-        const response = await fetch('http://localhost:8080/order', {
-            method: 'PUT',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-
-            })
-        });
-         const data = await response.json();
 
 

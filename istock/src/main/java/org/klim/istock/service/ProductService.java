@@ -26,4 +26,8 @@ public class ProductService {
     public Product find(long id) {
         return productRepository.getReferenceById(id);
     }
+
+    public List<Product> findByCategoryLike(String category) {
+        return productRepository.findByCategoryLike("%" + category + "%");
+    }
 }

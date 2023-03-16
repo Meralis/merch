@@ -14,5 +14,6 @@ CREATE TABLE product
     image_url varchar(255),
     price integer,
     title varchar(255),
+    category varchar(255),
     CONSTRAINT products_pkey PRIMARY KEY (product_id)
 )

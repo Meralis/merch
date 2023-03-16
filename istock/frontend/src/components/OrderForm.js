@@ -27,19 +27,14 @@ export default function OrderForm({basketItems}) {
     const clientDTO = {status: '', firstName: firstName, lastName: lastName, email: email, phone: phone};
 
     const savedProducts = basketItems.map(basketItem => getProductById(basketItem, products)).filter(product => product);
-    const totalSum = savedProducts.reduce((acc, product) => acc + (product.count * product.price), 0);
-     console.log('savedProducts',savedProducts);
 
     const orderItemDTO = savedProducts.map(savedProduct => ({
         product: savedProduct.productId,
         order: '',
         quantity: savedProduct.count,
-        amount: totalSum
+        amount: (savedProduct.count) * (savedProduct.price)
     }));
 
-    // const orderItemDTO = basketItems.map(basketItem => (
-    //     console.log(basketItem)
-    // ));
     console.log('orderItemDTO ', orderItemDTO);
 
 

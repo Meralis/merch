@@ -10,7 +10,7 @@ function useFetchProducts(setProducts) {
                 let savedItems = JSON.parse(savedBasket);
                 for (let product of data) {
                     const savedProduct = savedItems.filter(savedItem => product.productId === savedItem.productId);
-                    product.addedToBasket = savedProduct.length;
+                    product.addedToBasket = savedProduct.length > 0;
                     product.count = savedProduct.length ? savedProduct[0].count : 1;
                 }
                 setProducts(data);
@@ -20,4 +20,5 @@ function useFetchProducts(setProducts) {
         })
     }, []);
 }
+
 export default useFetchProducts;

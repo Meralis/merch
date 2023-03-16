@@ -6,7 +6,6 @@ function OrderCardItem({productToOrder}) {
     console.log(productToOrder)
     return <ListGroup.Item>
         <BasketItem product={productToOrder}/>
-
     </ListGroup.Item>
 }
 

@@ -1,7 +1,10 @@
 import {Button, Col, Form, Row} from "react-bootstrap";
-import React, {useCallback, useMemo, useState} from "react";
+import React, {useCallback, useContext, useMemo, useState} from "react";
+import {getProductById} from "../common/getProductById";
+import ProductContext from "../context/ProductContext";
 
 export default function OrderForm({basketItems}) {
+    const [products, setProducts] = useContext(ProductContext);
 
     const [firstName, setFirstName] = useState('');
 
@@ -23,21 +26,21 @@ export default function OrderForm({basketItems}) {
 
     const clientDTO = {status: '', firstName: firstName, lastName: lastName, email: email, phone: phone};
 
-    // basketItems  [{"productId":1,"count":1},{"productId":8,"count":2}]
-    // const orderItemDTO = [{product: '', order: '', quantity: 0, amount: 0}];
+    const savedProducts = basketItems.map(basketItem => getProductById(basketItem, products)).filter(product => product);
+    const totalSum = savedProducts.reduce((acc, product) => acc + (product.count * product.price), 0);
+     console.log('savedProducts',savedProducts);
 
-
-    const orderItemDTO = basketItems.map(basketItem => ({
-        product: basketItem.productId,
+    const orderItemDTO = savedProducts.map(savedProduct => ({
+        product: savedProduct.productId,
         order: '',
-        quantity: basketItem.count,
-        amount: 0
+        quantity: savedProduct.count,
+        amount: totalSum
     }));
 
     // const orderItemDTO = basketItems.map(basketItem => (
     //     console.log(basketItem)
     // ));
-     console.log('orderItemDTO ', orderItemDTO);
+    console.log('orderItemDTO ', orderItemDTO);
 
 
     return (

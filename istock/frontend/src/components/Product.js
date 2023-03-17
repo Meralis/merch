@@ -16,7 +16,6 @@ function Product({product}) {
                 <Link to={`/product/${product.productId}`}>
                     <Card.Title>{product.title}</Card.Title>
                 </Link>
-                <p>Category: {product.category}</p>
                 <p>${product.price}</p>
             </div>
             {product.addedToBasket ?

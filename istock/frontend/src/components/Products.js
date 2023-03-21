@@ -1,18 +1,16 @@
-import {useContext, useEffect, useState} from "react";
+import {useContext} from "react";
 import {Col, Row} from "react-bootstrap";
 import Product from "./Product";
-import Basket from "./Basket";
-import ClientContext from "../context/ClientContext";
+import Basket from "./basket/Basket";
 import ProductContext from "../context/ProductContext";
+import {saveProducts} from "../utils/saveProducts";
 
 
 function Products() {
-const [products, setProducts] = useContext(ProductContext);
+    const [products, setProducts] = useContext(ProductContext);
     // const [client, setClient] = useState({});
     // const [categories, setCategories] = useState([]);
     // const [selectedCategory, setSelectedCategory] = useState('');
-
-
 
 
     // function getAllCategories(products) {
@@ -21,24 +19,24 @@ const [products, setProducts] = useContext(ProductContext);
     //     setCategories(categories);
     // }
 
-    // function addToBasket(productId) {
-    //     const newProducts = products.map(product => ({
-    //         ...product,
-    //         addedToBasket: productId === product.productId ? true : product.addedToBasket
-    //     }))
-    //     setProducts(newProducts);
-    //     saveProducts(newProducts);
-    // }
+    function addToBasket(productId) {
+        const newProducts = products.map(product => ({
+            ...product,
+            addedToBasket: productId === product.productId ? true : product.addedToBasket
+        }))
+        setProducts(newProducts);
+        saveProducts(newProducts);
+    }
 
-    // function removeFromBasket(productId) {
-    //     const newProducts = products.map(product => ({
-    //         ...product,
-    //         addedToBasket: productId === product.productId ? false : product.addedToBasket,
-    //         count: productId === product.productId ? 1 : product.count
-    //     }))
-    //     setProducts(newProducts);
-    //     saveProducts(newProducts);
-    // }
+    function removeFromBasket(productId) {
+        const newProducts = products.map(product => ({
+            ...product,
+            addedToBasket: productId === product.productId ? false : product.addedToBasket,
+            count: productId === product.productId ? 1 : product.count
+        }))
+        setProducts(newProducts);
+        saveProducts(newProducts);
+    }
 
     // function saveProducts(updatedProducts) {
     //     const productsToSave = updatedProducts.filter(product => product.addedToBasket).map(product => ({
@@ -61,19 +59,19 @@ const [products, setProducts] = useContext(ProductContext);
         <Row>
             <Col xs={12}>
                 {/*<ClientContext.Provider value={{client}}>*/}
-                    <Basket
-                        // changeCount={changeCount}
-                        products={products.filter(product => product.addedToBasket)}
-                        // removeFromBasket={removeFromBasket}
-                    />
+                <Basket
+                    // changeCount={changeCount}
+                    products={products.filter(product => product.addedToBasket)}
+                    removeFromBasket={removeFromBasket}
+                />
             </Col>
             {/*<SelectCategories categories={categories} setSelectedCategory={setSelectedCategory}/>*/}
 
             {/*{products.filter(product => product.category === selectedCategory || !selectedCategory)*/}
 
             {products.map(product => <Product key={product.productId} product={product}
-                                              // addToBasket={addToBasket}
-                                              // removeFromBasket={removeFromBasket}
+                                              addToBasket={addToBasket}
+                                              removeFromBasket={removeFromBasket}
             />)}
         </Row>
     </>

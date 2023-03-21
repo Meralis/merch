@@ -1,17 +1,9 @@
 import {ListGroup} from "react-bootstrap";
 import {useContext} from "react";
-import ProductContext from "../context/ProductContext";
+import ProductContext from "../../context/ProductContext";
 import OrderCardItem from "./OrderCardItem";
-import Total from "./Total";
-import {getProductById} from "../common/getProductById";
-
-// function getProductById(savedItem, products) {
-//     const foundProducts = products.filter(product => product.productId === savedItem.productId);
-//     if (foundProducts.length > 0) {
-//         return {...savedItem, ...foundProducts[0]};
-//     }
-//     return undefined;
-// }
+import Total from "../Total";
+import {getProductById} from "../../utils/getProductById";
 
 function OrderCard({basketItems}) {
     const [products] = useContext(ProductContext);

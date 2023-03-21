@@ -1,5 +1,5 @@
 import {ListGroup} from "react-bootstrap";
-import BasketItem from "./BasketItem";
+import BasketItem from "../basket/BasketItem";
 
 
 function OrderCardItem({productToOrder}) {

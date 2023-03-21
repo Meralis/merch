@@ -16,7 +16,6 @@ function App() {
                         <Link className={'nav-link'} to={'/contacts'}>Contacts</Link>
                     </Nav>
                 </Navbar>
-
                 <Outlet/>
             </ProductContext.Provider>
         </>

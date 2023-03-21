@@ -1,7 +1,7 @@
 import {Button, Col, Form, Row} from "react-bootstrap";
 import React, {useCallback, useContext, useMemo, useState} from "react";
-import {getProductById} from "../common/getProductById";
-import ProductContext from "../context/ProductContext";
+import {getProductById} from "../../utils/getProductById";
+import ProductContext from "../../context/ProductContext";
 
 export default function OrderForm({basketItems}) {
     const [products, setProducts] = useContext(ProductContext);

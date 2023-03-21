@@ -9,8 +9,8 @@ import {Container} from "react-bootstrap";
 import ErrorPage from "./components/static/ErrorPage";
 import './index.css'
 import ProductItem from "./components/ProductItem";
-import OrderForm from "./components/OrderForm";
-import Order from "./components/Order";
+import OrderForm from "./components/order/OrderForm";
+import Order from "./components/order/Order";
 
 const router = createBrowserRouter([
     {

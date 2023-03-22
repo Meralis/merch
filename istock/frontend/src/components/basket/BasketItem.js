@@ -1,14 +1,21 @@
 import {Badge, Button, ListGroup} from "react-bootstrap";
 import {useContext} from "react";
 import ProductContext from "../../context/ProductContext";
-import changeCount from "../../common/commonComponents/changeCount";
+import changeCount from "../../utils/changeCount";
 import {saveProducts} from "../../utils/saveProducts";
+import removeFromBasket from "../../utils/removeFromBasket";
 
-function BasketItem({product, removeFromBasket}) {
+function BasketItem({product}) {
     const [products, setProducts] = useContext(ProductContext);
 
     function getNewProducts(newCount) {
         const newProducts = changeCount(products, product.productId, newCount);
+        setProducts(newProducts);
+        saveProducts(newProducts);
+    }
+
+    function getRemovingProducts(productId) {
+        const newProducts = removeFromBasket(products, productId);
         setProducts(newProducts);
         saveProducts(newProducts);
     }
@@ -29,7 +36,7 @@ function BasketItem({product, removeFromBasket}) {
             </div>
             <Badge variant="danger"
                    className={'ml-3 cursor-pointer bg-danger text-white'}
-                   onClick={() => removeFromBasket(product.productId)}>Remove</Badge>
+                   onClick={() => getRemovingProducts(product.productId)}>Remove</Badge>
         </div>
     </ListGroup.Item>
 }

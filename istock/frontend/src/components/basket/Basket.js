@@ -3,15 +3,13 @@ import BasketItem from "./BasketItem";
 import Total from "../Total";
 import RedirectToOrder from "../RedirectToOrder";
 
-function Basket({products, removeFromBasket}) {
+function Basket({products}) {
     return <div className={products.length ? 'basket-block p-3' : 'd-none'}>
         <h3>Basket</h3>
         <ListGroup className={'my-4'}>
             {products.map(product => <BasketItem
                 key={product.productId}
                 product={product}
-                // changeCount={changeCount}
-                removeFromBasket={removeFromBasket}
             />)}
             <Total products={products}/>
             <div className="mb-2">

@@ -3,7 +3,7 @@ import BasketItem from "../basket/BasketItem";
 
 
 function OrderCardItem({productToOrder}) {
-    console.log(productToOrder)
+    // console.log('productToOrder', productToOrder);
     return <ListGroup.Item>
         <BasketItem product={productToOrder}/>
     </ListGroup.Item>

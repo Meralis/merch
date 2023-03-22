@@ -3,8 +3,8 @@ import React, {useCallback, useContext, useMemo, useState} from "react";
 import {getProductById} from "../../utils/getProductById";
 import ProductContext from "../../context/ProductContext";
 
-export default function OrderForm({basketItems}) {
-    const [products, setProducts] = useContext(ProductContext);
+export default function OrderForm() {
+    const [products] = useContext(ProductContext);
 
     const [firstName, setFirstName] = useState('');
 
@@ -22,7 +22,10 @@ export default function OrderForm({basketItems}) {
 
     const isSubmitActive = useMemo(() => {
         return firstName !== '' && lastName !== '' && email !== '' && phone !== '' && address !== '';
-    }, [firstName, lastName, email, phone, address])
+    }, [firstName, lastName, email, phone, address]);
+
+    const savedItems = localStorage.getItem('basketItems');
+    let basketItems = JSON.parse(savedItems);
 
     const clientDTO = {status: '', firstName: firstName, lastName: lastName, email: email, phone: phone};
 
@@ -36,7 +39,18 @@ export default function OrderForm({basketItems}) {
     }));
 
     console.log('orderItemDTO ', orderItemDTO);
+    console.log('clientDTO ', clientDTO);
 
+    const orderDTO = {
+        status: '',
+        comments: '',
+        created: 'currentDate',
+        client: clientDTO,
+        total: orderItemDTO.reduce((acc, product) => acc + product.amount, 0),
+        deliveryAddress: address,
+        items: orderItemDTO
+    };
+    console.log('orderDTO ', orderDTO);
 
     return (
         <Form onSubmit={handleSubmit}>

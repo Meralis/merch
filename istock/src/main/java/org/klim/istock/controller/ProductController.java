@@ -32,7 +32,7 @@ public class ProductController {
     @GetMapping("/product/{id}")
     @CrossOrigin
     public ProductDTO singleProduct(
-            @PathVariable(value = "id") long productId) {
+            @PathVariable(value = "id") int productId) {
         return toDto(productService.find(productId));
     }
 

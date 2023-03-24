@@ -23,7 +23,7 @@ public class ProductService {
     }
 
     @Transactional
-    public Product find(long id) {
+    public Product find(int id) {
         return productRepository.getReferenceById(id);
     }
 

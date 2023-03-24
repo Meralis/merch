@@ -5,6 +5,7 @@ import org.klim.istock.model.OrderStatus;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -32,5 +33,5 @@ public class Order {
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    private Set<OrderItem> items;
+    private List<OrderItem> items;
 }

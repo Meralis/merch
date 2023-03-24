@@ -1,8 +1,10 @@
 package org.klim.istock.controller;
 
 import org.klim.istock.DTO.OrderDTO;
+import org.klim.istock.converter.OrderConverter;
+import org.klim.istock.entity.Order;
 import org.klim.istock.service.ClientService;
-import org.klim.istock.util.ModelMapperUtil;
+import org.klim.istock.service.OrderService;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,15 +14,20 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "http://localhost:3000")
 public class OrderController {
     public final ClientService clientService;
-    private final ModelMapperUtil modelMapper;
+    private final OrderConverter orderConverter;
+    private final OrderService orderService;
 
-    public OrderController(ClientService clientService, ModelMapperUtil modelMapper) {
+    public OrderController(ClientService clientService, OrderConverter orderConverter, OrderService orderService) {
         this.clientService = clientService;
-        this.modelMapper = modelMapper;
+        this.orderConverter = orderConverter;
+        this.orderService = orderService;
     }
 
     @PutMapping("/order")
-    public void buildOrder(@RequestBody OrderDTO orderDTO) {
-         orderDTO.setComments("aaa");
+    public OrderDTO buildOrder(@RequestBody OrderDTO orderDTO) {
+        Order order = orderConverter.toEntity(orderDTO);
+        Order savedOrder = orderService.saveNewOrder(order);
+        OrderDTO storedDto = orderConverter.toDto(savedOrder);
+        return storedDto;
     }
 }

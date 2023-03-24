@@ -18,6 +18,7 @@ export default function OrderForm() {
 
     const handleSubmit = useCallback((e) => {
         e.preventDefault();
+        sendOrderData(orderDTO).then(data => console.log("OrderDTOnew: ",  data));
     }, [firstName, lastName, email, phone, address])
 
     const isSubmitActive = useMemo(() => {
@@ -27,13 +28,12 @@ export default function OrderForm() {
     const savedItems = localStorage.getItem('basketItems');
     let basketItems = JSON.parse(savedItems);
 
-    const clientDTO = {status: '', firstName: firstName, lastName: lastName, email: email, phone: phone};
+    const clientDTO = {status: null, firstName: firstName, lastName: lastName, email: email, phone: phone};
 
     const savedProducts = basketItems.map(basketItem => getProductById(basketItem, products)).filter(product => product);
 
     const orderItemDTO = savedProducts.map(savedProduct => ({
-        product: savedProduct.productId,
-        order: '',
+        productId: savedProduct.productId,
         quantity: savedProduct.count,
         amount: (savedProduct.count) * (savedProduct.price)
     }));
@@ -42,15 +42,18 @@ export default function OrderForm() {
     console.log('clientDTO ', clientDTO);
 
     const orderDTO = {
-        status: '',
+        order_id: null,
+        status: null,
         comments: '',
-        created: 'currentDate',
+        created: null,
         client: clientDTO,
         total: orderItemDTO.reduce((acc, product) => acc + product.amount, 0),
         deliveryAddress: address,
         items: orderItemDTO
     };
     console.log('orderDTO ', orderDTO);
+
+    // sendOrderData(orderDTO).then(data => console.log("Order ID: ",  data.order_id));
 
     return (
         <Form onSubmit={handleSubmit}>
@@ -93,13 +96,13 @@ export default function OrderForm() {
 }
 
 
-async function sendOrderData() {
+async function sendOrderData(orderDTO) {
     const response = await fetch('http://localhost:8080/order', {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({})
+        body: JSON.stringify(orderDTO)
     });
-    const data = await response.json();
+    return await response.json();
 }
 
 

@@ -18,7 +18,7 @@ export default function OrderForm() {
 
     const handleSubmit = useCallback((e) => {
         e.preventDefault();
-        sendOrderData(orderDTO).then(data => console.log("OrderDTOnew: ",  data));
+        sendOrderData(orderDTO).then(data => console.log("OrderDTO Received: ",  data));
     }, [firstName, lastName, email, phone, address])
 
     const isSubmitActive = useMemo(() => {
@@ -94,7 +94,6 @@ export default function OrderForm() {
         </Form>
     );
 }
-
 
 async function sendOrderData(orderDTO) {
     const response = await fetch('http://localhost:8080/order', {

@@ -20,7 +20,7 @@ public class Client {
     private String email;
     private String phone;
 
-    @OneToMany(mappedBy = "client")
-    private Set<Order> orders;
+//    @OneToMany(mappedBy = "client")
+//    private Set<Order> orders;
 }
 

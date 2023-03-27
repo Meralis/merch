@@ -33,9 +33,11 @@ public class OrderConverter implements IConverter<OrderDTO, Order> {
         List<OrderItem> entityItems = order.getItems();
         IntStream.range(0, orderDto.getItems().size())
                 .forEach(i -> {
+                    OrderItem orderItem = entityItems.get(i);
                     Integer productId = dtoItems.get(i).getProductId();
                     Product product = productService.find(productId);
-                    entityItems.get(i).setProduct(product);
+                    orderItem.setProduct(product);
+                    orderItem.setOrder(order);
                 });
         Client requestClient = order.getClient();
         Client savedClient = clientService.findByEmail(requestClient.getEmail());
@@ -58,4 +60,3 @@ public class OrderConverter implements IConverter<OrderDTO, Order> {
         return orderDto;
     }
 }
-

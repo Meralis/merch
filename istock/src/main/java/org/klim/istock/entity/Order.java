@@ -29,9 +29,10 @@ public class Order {
     private String deliveryAddress;
 
     @OneToMany(
-            mappedBy = "order",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
+        mappedBy = "order",
+        cascade = CascadeType.PERSIST,
+        orphanRemoval = true,
+        fetch = FetchType.LAZY
     )
     private List<OrderItem> items;
 }

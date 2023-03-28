@@ -26,7 +26,7 @@ public class OrderController {
     @PutMapping("/order")
     public OrderDTO buildOrder(@RequestBody OrderDTO orderDTO) {
         Order order = orderConverter.toEntity(orderDTO);
-        Order savedOrder = orderService.saveNewOrder(order);
+        Order savedOrder = orderService.save(order);
         OrderDTO storedDto = orderConverter.toDto(savedOrder);
         return storedDto;
     }

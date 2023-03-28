@@ -13,12 +13,12 @@ import java.time.LocalDateTime;
 public class OrderService {
     private final OrderRepository orderRepository;
     private final ClientService clientService;
+    private final EmailService emailService;
 
-
-    public OrderService(OrderRepository orderRepository, ClientService clientService) {
+    public OrderService(OrderRepository orderRepository, ClientService clientService, EmailService emailService) {
         this.orderRepository = orderRepository;
         this.clientService = clientService;
-
+        this.emailService = emailService;
     }
 
     @Transactional
@@ -35,6 +35,9 @@ public class OrderService {
             order.setClient(savedClient);
         }
         Order savedOrder = orderRepository.save(order);
+        emailService.sendEmail(order.getClient().getEmail(),
+                "Ваше замовлення №" + order.getOrderId() + " прийнято",
+                emailService.buildMessageBody(order.getItems()));
         return savedOrder;
     }
 }

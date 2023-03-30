@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title th:remove="all">Template for HTML email with inline image</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<p>
+    Замовлення №
+    <span th:text="${order.orderId}"></span>
+</p>
+<table>
+    <tr>
+        <th>Найменування</th>
+        <th>Кількість</th>
+        <th>Сума</th>
+    </tr>
+    <tr data-th-each="item : ${order.items}">
+        <td data-th-text="${item.product.title}">...
+        </td>
+        <td data-th-text="${item.quantity}" style="
+        margin-right: 50px;
+        margin-left: 50px;
+        text-align: center;
+    ">...
+        </td>
+        <td data-th-text="${item.amount}">...</td>
+    </tr>
+</table>
+<br>
+<p><b>Загальна сума:</b>
+    <span th:text="${order.total}"></span>
+    <span> грн</span>
+</p>
+<p><b>Отримувач: </b>
+    <span th:text="${order.client.firstName}"></span>
+    <span th:text="${order.client.lastName}"></span>
+</p>
+<p><b>Адреса доставки: </b>
+    <span th:text="${order.deliveryAddress}"></span>
+</p>
+<p>
+    Regards, <br/>
+    <em>Istock</em>
+</p>
+</body>
+</html>

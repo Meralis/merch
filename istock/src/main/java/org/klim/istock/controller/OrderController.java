@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.mail.MessagingException;
+
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 public class OrderController {
@@ -24,10 +26,9 @@ public class OrderController {
     }
 
     @PutMapping("/order")
-    public OrderDTO buildOrder(@RequestBody OrderDTO orderDTO) {
+    public OrderDTO buildOrder(@RequestBody OrderDTO orderDTO) throws MessagingException {
         Order order = orderConverter.toEntity(orderDTO);
         Order savedOrder = orderService.save(order);
-        OrderDTO storedDto = orderConverter.toDto(savedOrder);
-        return storedDto;
+        return orderConverter.toDto(savedOrder);
     }
 }

@@ -53,8 +53,6 @@ export default function OrderForm() {
     };
     console.log('orderDTO ', orderDTO);
 
-    // sendOrderData(orderDTO).then(data => console.log("Order ID: ",  data.order_id));
-
     return (
         <Form onSubmit={handleSubmit}>
             <div className={'mt-4'}><h3>Ваші дані</h3></div>

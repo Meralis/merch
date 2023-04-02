@@ -30,4 +30,8 @@ public class ProductService {
     public List<Product> findByCategoryLike(String category) {
         return productRepository.findByCategoryLike("%" + category + "%");
     }
+
+    public List<Product> findByTitleLikeIgnoreCase(String searchText) {
+        return productRepository.findByTitleLikeIgnoreCase("%" + searchText + "%");
+    }
 }

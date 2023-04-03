@@ -3,7 +3,7 @@ import {Link, Outlet} from "react-router-dom";
 import ProductContext from "./context/ProductContext";
 import {useState} from "react";
 import useFetchProducts from "./context/UseFetchProducts";
-import SearchProduct from "./components/SearchProduct";
+import SearchProduct from "./components/product/SearchProduct";
 
 function App() {
     const [products, setProducts] = useState([]);
@@ -18,7 +18,6 @@ function App() {
                         <SearchProduct/>
                     </Nav>
                 </Navbar>
-
                 <Outlet/>
             </ProductContext.Provider>
         </>

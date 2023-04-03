@@ -1,8 +1,8 @@
 import {useContext} from "react";
 import {Col, Row} from "react-bootstrap";
 import Product from "./Product";
-import Basket from "./basket/Basket";
-import ProductContext from "../context/ProductContext";
+import Basket from "../basket/Basket";
+import ProductContext from "../../context/ProductContext";
 
 function Products() {
     const [products] = useContext(ProductContext);

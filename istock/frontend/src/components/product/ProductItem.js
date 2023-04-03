@@ -1,10 +1,10 @@
 import {useParams} from "react-router-dom";
 import {useContext, useEffect, useState} from "react";
 import {Button, Card} from "react-bootstrap";
-import ProductContext from "../context/ProductContext";
-import addToBasket from "../utils/addToBasket";
-import {saveProducts} from "../utils/saveProducts";
-import removeFromBasket from "../utils/removeFromBasket";
+import ProductContext from "../../context/ProductContext";
+import addToBasket from "../../utils/addToBasket";
+import {saveProducts} from "../../utils/saveProducts";
+import removeFromBasket from "../../utils/removeFromBasket";
 
 function ProductItem() {
     const {productId} = useParams();
@@ -42,7 +42,7 @@ function ProductItem() {
                 }
             })
         }
-    }, [])
+    }, [productId])
 
     return <>
         <Card className={'productCard'}>

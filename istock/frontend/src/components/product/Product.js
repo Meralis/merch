@@ -1,11 +1,10 @@
 import {Button, Card, Col} from "react-bootstrap"
 import {Link} from "react-router-dom";
-import addToBasket from "../utils/addToBasket";
-import {saveProducts} from "../utils/saveProducts";
+import addToBasket from "../../utils/addToBasket";
+import {saveProducts} from "../../utils/saveProducts";
 import {useContext} from "react";
-import ProductContext from "../context/ProductContext";
-import removeFromBasket from "../utils/removeFromBasket";
-
+import ProductContext from "../../context/ProductContext";
+import removeFromBasket from "../../utils/removeFromBasket";
 
 function Product({product}) {
     const [products, setProducts] = useContext(ProductContext);

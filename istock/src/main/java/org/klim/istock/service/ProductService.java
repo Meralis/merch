@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductService {
@@ -18,20 +19,24 @@ public class ProductService {
     }
 
     @Transactional
-    public List<Product> findAll() {
-        return productRepository.findAll();
-    }
-
-    @Transactional
     public Product find(int id) {
         return productRepository.getReferenceById(id);
     }
 
+    @Transactional
     public List<Product> findByCategoryLike(String category) {
         return productRepository.findByCategoryLike("%" + category + "%");
     }
 
-    public List<Product> findByTitleLikeIgnoreCase(String searchText) {
-        return productRepository.findByTitleLikeIgnoreCase("%" + searchText + "%");
+    @Transactional
+    public List<Product> searchProduct(Optional<String> searchText) {
+        return searchText.isEmpty()
+                ? productRepository.findAll()
+                : productRepository.findByTitleLikeIgnoreCase("%" + searchText.get() + "%");
+    }
+
+    @Transactional
+    public List<Product> findAll() {
+        return productRepository.findAll();
     }
 }

@@ -7,6 +7,7 @@ import org.klim.istock.util.ModelMapperUtil;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 import static java.util.stream.Collectors.toList;
 
@@ -35,11 +36,11 @@ public class ProductController {
 
     @PostMapping("/product/search")
     @CrossOrigin
-    public List<ProductDTO> searchProduct(@RequestBody String searchText) {
-        return searchText.length() == 0
-            ? productService.findAll().stream().map(this::toDto).collect(toList())
-            : productService.findByTitleLikeIgnoreCase(searchText).stream().map(this::toDto).collect(toList());
+    public List<ProductDTO> searchProduct(@RequestBody Optional<String> searchText) {
+        return productService.searchProduct(searchText).stream().map(this::toDto).collect(toList());
     }
+
+
     private ProductDTO toDto(Product product) {
         return modelMapper.map(product, ProductDTO.class);
     }

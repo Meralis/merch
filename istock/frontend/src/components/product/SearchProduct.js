@@ -22,7 +22,6 @@ function SearchProduct() {
                 sendSearchRequest(searchText).then(data => setSearchResults(data));
             }, 1000);
             return () => clearTimeout(timeout);
-
         } else {
             setSearchResults([]);
         }
@@ -44,7 +43,7 @@ function SearchProduct() {
                 />
             </Form>
             {isOpen && (
-                <ListGroup>
+                <ListGroup className={'select_list'}>
                     {searchResults.map((product) => (
                         <Link to={`/product/${product.productId}`}
                               key={product.productId}

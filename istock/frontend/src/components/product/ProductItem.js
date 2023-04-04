@@ -10,7 +10,6 @@ function ProductItem() {
     const {productId} = useParams();
     const [product, setProduct] = useState({});
     const [products, setProducts] = useContext(ProductContext);
-    // const [isOpen, setIsOpen] = useState(true);
 
     function getAddingProducts(productId) {
         const newProducts = addToBasket(products, productId);
@@ -41,7 +40,6 @@ function ProductItem() {
                 } else {
                     setProduct(product => ({...product, addedToBasket: false, count: 1}));
                 }
-                // setIsOpen(false);
             })
         }
     }, [productId])

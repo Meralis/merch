@@ -40,10 +40,14 @@ public class ProductController {
         return productService.searchProduct(searchText).stream().map(this::toDto).collect(toList());
     }
 
+    @PostMapping("/product/category")
+    @CrossOrigin
+    public List<ProductDTO> findByCategory(@RequestBody String category) {
+        return productService.findByCategoryLike(category).stream().map(this::toDto).collect(toList());
+    }
 
     private ProductDTO toDto(Product product) {
         return modelMapper.map(product, ProductDTO.class);
     }
 }
 //        new HttpHeaders().setCacheControl("no-cache, no-store, must-revalidate");
-

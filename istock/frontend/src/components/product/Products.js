@@ -8,7 +8,6 @@ function Products() {
     const [products] = useContext(ProductContext);
     // const [client, setClient] = useState({});
     // const [categories, setCategories] = useState([]);
-    // const [selectedCategory, setSelectedCategory] = useState('');
 
     // function getAllCategories(products) {
     //     const categories = products.reduce(

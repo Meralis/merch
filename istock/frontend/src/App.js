@@ -13,9 +13,10 @@ function App() {
             <ProductContext.Provider value={[products, setProducts]}>
                 <Navbar bg="primary" variant="dark" className={'row'}>
                     <Nav className="me-auto">
+                        <Link className={'nav-link'} to={'/'}>Istock</Link>
                         <Link className={'nav-link'} to={'/products'}>Products</Link>
                         <Link className={'nav-link'} to={'/contacts'}>Contacts</Link>
-                        <SearchProduct/>
+                        <SearchProduct className={'search'}/>
                     </Nav>
                 </Navbar>
                 <Outlet/>

@@ -1,5 +1,10 @@
 .main-photo {
-    text-align: right;
+    display: flex;
+    justify-content: center;
+}
+.main-nav {
+    display: flex;
+    justify-content: space-around;
 }
 
 .basket-block {

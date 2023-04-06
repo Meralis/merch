@@ -1,5 +1,6 @@
 package org.klim.istock.controller;
 
+import org.klim.istock.DTO.CategoryDTO;
 import org.klim.istock.DTO.ProductDTO;
 import org.klim.istock.entity.Product;
 import org.klim.istock.service.ProductService;
@@ -44,6 +45,12 @@ public class ProductController {
     @CrossOrigin
     public List<ProductDTO> findByCategory(@RequestBody String category) {
         return productService.findByCategoryLike(category).stream().map(this::toDto).collect(toList());
+    }
+
+    @GetMapping("/product/categoryTree")
+    @CrossOrigin
+    public CategoryDTO categoryDTO() {
+        return productService.getCategories();
     }
 
     private ProductDTO toDto(Product product) {

@@ -7,11 +7,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class ProductService {
@@ -48,14 +46,11 @@ public class ProductService {
     @PostConstruct
     public void postConstruct() {
         findAll().stream()
-            .map(Product::getCategory)
-            .sorted()
-            .distinct()
-            .map(c -> c.split("\\."))
-            .forEach(path -> {
-                System.out.println("===>>> Pathh = " + Arrays.stream(path).collect(Collectors.joining(".")));
-                addChildCategory(rootNode, path, 0);
-            });
+                .map(Product::getCategory)
+                .sorted()
+                .distinct()
+                .map(c -> c.split("\\."))
+                .forEach(path -> addChildCategory(rootNode, path, 0));
     }
 
     public CategoryDTO getCategories() {
@@ -79,7 +74,6 @@ public class ProductService {
     }
 
     private void addSubCategories(CategoryDTO node, String[] path, int index) {
-        System.out.println("===>>> Iteration " + index);
         if (index < path.length) {
             CategoryDTO newNode = new CategoryDTO(path[index], node);
             node.getChildren().add(newNode);

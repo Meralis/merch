@@ -1,5 +1,6 @@
 package org.klim.istock.DTO;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.ToString;
 
@@ -10,6 +11,7 @@ import java.util.List;
 @ToString(exclude = {"parent"})
 public class CategoryDTO {
     private final String name;
+    @JsonIgnore
     private final CategoryDTO parent;
     private final List<CategoryDTO> children = new LinkedList<>();
 }

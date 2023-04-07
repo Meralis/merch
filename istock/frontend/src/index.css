@@ -1,10 +1,10 @@
+.main-nav-block > .main-nav {
+    display: flex;
+    justify-content: space-around;
+}
 .main-photo {
     display: flex;
     justify-content: center;
-}
-.main-nav {
-    display: flex;
-    justify-content: space-around;
 }
 
 .basket-block {

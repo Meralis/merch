@@ -22,86 +22,71 @@ function SelectCategories() {
         }
     }, [selectedCategory])
 
-    function getAllCategories(products) {
-        const categories = products.reduce(
-            (acc, product) => (acc.includes(product.category) ? acc : [...acc, product.category]), [])
-        setCategories(categories);
+    async function sendCategoryTreeRequest() {
+        const response = await fetch('http://localhost:8080/product/categoryTree', {
+            method: 'GET',
+            headers: {'Content-Type': 'application/json'},
+        });
+        return await response.json();
     }
 
     useEffect(() => {
-        if (products.length > 0) {
-            getAllCategories(products);
+        sendCategoryTreeRequest().then(data => setCategories(data));
+    }, [])
+
+    function ChildList({children}) {
+        if (!children || !children.length) {
+            return null;
         }
-    }, [products])
-
-    // function getSubCategory(currentCategory) {
-    //     categories.filter(category => {
-    //         const startIndex = category.indexOf(currentCategory);
-    //        if (category.indexOf(currentCategory)!==-1){
-    //            const subCategory = category.slice(startIndex + currentCategory.length + 1);
-    //            console.log(subCategory)
-    //        }
-    //     })
-    // }
-
-    function getSubCategories(selectedCategory) {
-        return categories
-            .filter(category => category.indexOf(selectedCategory) !== -1)
-            .map(category => category.slice(selectedCategory.length + 1));
+        return (
+            <ul className={'main-nav'}>
+                {children.map(child => (
+                    <li key={child.name}>{child.name}
+                        <ChildList children={child.children}/>
+                    </li>
+                ))}
+            </ul>
+        );
     }
-
-    getSubCategories("cat");
 
     return <>
         <div className={'main-nav-block'}>
-            <ul onClick={() => setSelectedCategory('dog')}>Собаки</ul>
-            {selectedCategory === 'dog' &&
-                (categoryResults.map(product => (
-                    <li key={product.productId}>{product.title}</li>
-                )))
-            }
-        </div>
-        <div className={'main-nav-block'}>
-            <ul onClick={() => setSelectedCategory('cat')}>Кішки</ul>
-            {categories.map(category => (
-                <li>{category}</li>
-            ))}
+            <ChildList children={categories.children}/>
         </div>
     </>
-
 
 }
 
 export default SelectCategories;
 
 // 0: "cat.food.dry"
-// "Кішки.Корм.Сухий корм"
+// "Кішки.Харчування.Сухий корм"
 // 1: "cat.hygiene.care"
 // "Кішки.Гігієна.Засоби по догляду"
 // 2: "cat.hygiene.shampoo"
 // "Кішки.Гігієна.Шампуні"
 // 3: "cat.hygiene.toilet"
-// "Кішки.Гігієна.Туалетні наповнювачі"
+// "Кішки.Гігієна.Наповнювачі"
 // 4: "dog.food.dry"
-// "Собаки.Корм.Сухий корм"
+// "Собаки.Харчування.Сухий корм"
 // 5: "dog.hygiene.care"
-// "Собаки.Гігієна.Догляд"
+// "Собаки.Гігієна.Засоби по догляду"
 // 6: "dog.hygiene.shampoo"
 // "Собаки.Гігієна.Шампуні"
 // 7: "dog.hygiene.deaper"
 // "Собаки.Гігієна.Пелюшки"
 // 8: "cat.food.wet"
-// "Собаки.Корм.Консерви"
+// "Собаки.Харчування.Консервований корм"
 // 9: "dog.food.wet"
-// "Собаки.Корм.Консерви"
+// "Собаки.Харчування.Консервований корм"
 // 10: "cat.food.medicinal"
-// "Кішки.Корм.Лікувальний корм"
+// "Кішки.Харчування.Лікувальний корм"
 // 11: "dog.food.medicinal"
-// "Собаки.Корм.Лікувальний корм"
+// "Собаки.Харчування.Лікувальний корм"
 // 12: "cat.food.vitamins"
-// "Кішки.Корм.Вітаміни"
-// 13: "dog.food.vitamins"
-// "Собаки.Корм.Вітаміни"
+// "Кішки.Харчування.Вітаміни та добавки"
+// 13: "dog.food.vitamins та добавки"
+// "Собаки.Харчування.Вітаміни та добавки"
 // 14: "cat.health.insect"
 // "Кішки.Здоров'я.Від комах"
 // 15: "cat.health.worm"

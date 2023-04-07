@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -28,6 +29,8 @@ public class ProductService {
 
     @Transactional
     public List<Product> findByCategoryLike(String category) {
+        category = category.contains("ROOT.") ? category.replace("ROOT.", "") : category;
+        System.out.println(category);
         return productRepository.findByCategoryLike("%" + category + "%");
     }
 
@@ -47,7 +50,7 @@ public class ProductService {
     public void postConstruct() {
         findAll().stream()
                 .map(Product::getCategory)
-                .sorted()
+                .sorted(Collections.reverseOrder())
                 .distinct()
                 .map(c -> c.split("\\."))
                 .forEach(path -> addChildCategory(rootNode, path, 0));

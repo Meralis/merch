@@ -19,6 +19,8 @@ function SelectCategories() {
     useEffect(() => {
         if (selectedCategory) {
             sendCategoryRequest(selectedCategory).then(data => setCategoryResults(data));
+            console.log(selectedCategory);
+            console.log(categoryResults);
         }
     }, [selectedCategory])
 
@@ -34,15 +36,20 @@ function SelectCategories() {
         sendCategoryTreeRequest().then(data => setCategories(data));
     }, [])
 
-    function ChildList({children}) {
+    function ChildList({children, parentName}) {
+        const handleClick = (event, name) => {
+            event.stopPropagation();
+            setSelectedCategory(`${parentName}.${name}`);
+        };
         if (!children || !children.length) {
             return null;
         }
         return (
             <ul className={'main-nav'}>
                 {children.map(child => (
-                    <li key={child.name}>{child.name}
-                        <ChildList children={child.children}/>
+                    <li key={child.name} onClick={(event) => handleClick(event, child.name)}>
+                        {child.name}
+                        <ChildList children={child.children} parentName={`${parentName}.${child.name}`}/>
                     </li>
                 ))}
             </ul>
@@ -51,47 +58,10 @@ function SelectCategories() {
 
     return <>
         <div className={'main-nav-block'}>
-            <ChildList children={categories.children}/>
+            <ChildList children={categories.children} parentName={categories.name} />
         </div>
     </>
 
 }
 
 export default SelectCategories;
-
-// 0: "cat.food.dry"
-// "Кішки.Харчування.Сухий корм"
-// 1: "cat.hygiene.care"
-// "Кішки.Гігієна.Засоби по догляду"
-// 2: "cat.hygiene.shampoo"
-// "Кішки.Гігієна.Шампуні"
-// 3: "cat.hygiene.toilet"
-// "Кішки.Гігієна.Наповнювачі"
-// 4: "dog.food.dry"
-// "Собаки.Харчування.Сухий корм"
-// 5: "dog.hygiene.care"
-// "Собаки.Гігієна.Засоби по догляду"
-// 6: "dog.hygiene.shampoo"
-// "Собаки.Гігієна.Шампуні"
-// 7: "dog.hygiene.deaper"
-// "Собаки.Гігієна.Пелюшки"
-// 8: "cat.food.wet"
-// "Собаки.Харчування.Консервований корм"
-// 9: "dog.food.wet"
-// "Собаки.Харчування.Консервований корм"
-// 10: "cat.food.medicinal"
-// "Кішки.Харчування.Лікувальний корм"
-// 11: "dog.food.medicinal"
-// "Собаки.Харчування.Лікувальний корм"
-// 12: "cat.food.vitamins"
-// "Кішки.Харчування.Вітаміни та добавки"
-// 13: "dog.food.vitamins та добавки"
-// "Собаки.Харчування.Вітаміни та добавки"
-// 14: "cat.health.insect"
-// "Кішки.Здоров'я.Від комах"
-// 15: "cat.health.worm"
-// "Кішки.Здоров'я.Від глистів"
-// 16: "dog.health.insect"
-// "Собаки.Здоров'я.Від комах"
-// 17: "dog.health.worm"
-// "Собаки.Здоров'я.Від глистів"

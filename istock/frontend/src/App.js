@@ -11,7 +11,7 @@ function App() {
     return (
         <>
             <ProductContext.Provider value={[products, setProducts]}>
-                <Navbar bg="primary" variant="dark" className={'row'}>
+                <Navbar className={'row color-navigation'}>
                     <Nav className="me-auto">
                         <Link className={'nav-link'} to={'/'}>Istock</Link>
                         <Link className={'nav-link'} to={'/products'}>Products</Link>

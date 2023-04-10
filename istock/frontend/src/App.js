@@ -1,9 +1,8 @@
-import {Nav, Navbar} from "react-bootstrap";
-import {Link, Outlet} from "react-router-dom";
+import {Outlet} from "react-router-dom";
 import ProductContext from "./context/ProductContext";
 import {useState} from "react";
 import useFetchProducts from "./context/UseFetchProducts";
-import SearchProduct from "./components/product/SearchProduct";
+import Header from "./components/header/Header";
 
 function App() {
     const [products, setProducts] = useState([]);
@@ -11,14 +10,7 @@ function App() {
     return (
         <>
             <ProductContext.Provider value={[products, setProducts]}>
-                <Navbar className={'row color-navigation'}>
-                    <Nav className="me-auto">
-                        <Link className={'nav-link'} to={'/'}>Istock</Link>
-                        <Link className={'nav-link'} to={'/products'}>Products</Link>
-                        <Link className={'nav-link'} to={'/contacts'}>Contacts</Link>
-                        <SearchProduct className={'search'}/>
-                    </Nav>
-                </Navbar>
+                <Header/>
                 <Outlet/>
             </ProductContext.Provider>
         </>

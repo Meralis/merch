@@ -40,7 +40,7 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
-        <Container className={'color-root'}>
+        <Container className={'color-light-theme'}>
             <RouterProvider router={router}/>
         </Container>
     </React.StrictMode>

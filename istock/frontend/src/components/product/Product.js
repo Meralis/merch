@@ -30,7 +30,7 @@ function Product({product}) {
                 <Link to={`/product/${product.productId}`}>
                     <Card.Title>{product.title}</Card.Title>
                 </Link>
-                <p>${product.price}</p>
+                <p>{product.price} грн</p>
             </div>
             {product.addedToBasket ?
                 <Button variant="danger" onClick={() => getRemovingProducts(product.productId)}>Видалити</Button> :

@@ -48,7 +48,7 @@ function ProductItem() {
         <Card className={'productCard'}>
             <Card.Img src={product.imageUrl} style={{height: '25rem', width: '20rem'}}/>
             <Card.Body>
-                <Card.Title>{product.title}</Card.Title>
+                <Card.Title><b>{product.title}</b></Card.Title>
                 <Card.Text>{product.description}</Card.Text>
                 {product.addedToBasket ?
                     <Button variant="danger"

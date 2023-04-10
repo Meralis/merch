@@ -14,7 +14,7 @@ async function sendSearchRequest(searchText) {
 function SearchProduct() {
     const [searchText, setSearchText] = useState('');
     const [searchResults, setSearchResults] = useState([]);
-    const [isOpen, setIsOpen] = useState(true);
+    const [isSearchOpen, setIsSearchOpen] = useState(true);
 
     useEffect(() => {
         if (searchText.length > 3) {
@@ -29,7 +29,7 @@ function SearchProduct() {
 
     function handleSearchInputChange(e) {
         setSearchText(e.target.value);
-        setIsOpen(true);
+        setIsSearchOpen(true);
     }
 
     return (
@@ -42,13 +42,13 @@ function SearchProduct() {
                              onChange={handleSearchInputChange}
                 />
             </Form>
-            {isOpen && (
+            {isSearchOpen && (
                 <ListGroup className={'select_list'}>
                     {searchResults.map((product) => (
                         <Link to={`/product/${product.productId}`}
                               key={product.productId}
                               onClick={() => {
-                                  setIsOpen(false);
+                                  setIsSearchOpen(false);
                                   setSearchText('')
                               }}>
                             <ListGroup.Item action>{product.title}</ListGroup.Item>

@@ -1,9 +1,17 @@
+ul li {
+    cursor: pointer;
+    list-style-type: none;
+}
 
-.color-navigation {
+.main-nav-block > ul {
+    padding-left: 0;
+}
+
+.color-dark-theme {
     background-color: firebrick;
 }
 
-.color-root {
+.color-light-theme {
     background-color: #ffe9d8;
 }
 
@@ -11,24 +19,24 @@
     display: flex;
     justify-content: space-around;
 }
+
+.total {
+    border: 1px solid firebrick;
+    padding-top: .7rem;
+    padding-bottom: .7rem;
+    padding-left: 10px;
+}
+
 .main-photo {
     display: flex;
     justify-content: center;
 }
 
-.basket-block {
-    background: white;
-    position: fixed;
-    right: 0;
-    top: 15%;
-    border: 3px solid black;
-    border-radius: .5rem;
-    z-index: 5;
-}
 
 .productCard {
     flex-direction: row;
 }
+
 .search {
     position: relative;
 }
@@ -36,6 +44,24 @@
 .select_list {
     position: absolute;
     z-index: 9;
-    top:55px;
+    top: 55px;
     width: 55%;
+}
+
+.basket-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    position: relative;
+}
+
+.basket-block {
+    background: white;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    border: 3px solid black;
+    border-radius: .5rem;
+    z-index: 5;
+    max-width: 35%;
+    font-size: .8rem;
 }

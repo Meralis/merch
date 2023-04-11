@@ -1,17 +1,15 @@
-import {Navigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {Button} from "react-bootstrap";
-import {useState} from "react";
 
 function RedirectToOrder() {
-    const [isRedirected, setIsRedirected] = useState(false);
+    const navigate = useNavigate();
 
-    function redirectToOrder() {
-        setIsRedirected(true);
+    function handleRedirect() {
+        navigate("/order");
     }
 
     return <div className={'text-center'}>
-        {isRedirected ? <Navigate to={'/order'}></Navigate> : ''}
-        <Button variant={'success'} onClick={redirectToOrder}>Оформити замовлення</Button>
+        <Button variant={'success'} onClick={handleRedirect}>Оформити замовлення</Button>
     </div>
 }
 

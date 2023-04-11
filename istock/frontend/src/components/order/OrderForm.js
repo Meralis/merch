@@ -38,9 +38,6 @@ export default function OrderForm() {
         amount: (savedProduct.count) * (savedProduct.price)
     }));
 
-    console.log('orderItemDTO ', orderItemDTO);
-    console.log('clientDTO ', clientDTO);
-
     const orderDTO = {
         order_id: null,
         status: null,
@@ -51,7 +48,6 @@ export default function OrderForm() {
         deliveryAddress: address,
         items: orderItemDTO
     };
-    console.log('orderDTO ', orderDTO);
 
     return (
         <Form onSubmit={handleSubmit}>

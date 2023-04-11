@@ -4,7 +4,7 @@ function Home() {
 
     return <>
         <div className={'main-photo'}>
-            <img src={"/images/dog-cat-1.png"} alt={"animals"}/>
+            <img src={"/images/dog-cat-1.png"} alt={"animals"} className={'img-fluid'}/>
         </div>
         <div className={'main-nav'}>
             <SelectCategories/>

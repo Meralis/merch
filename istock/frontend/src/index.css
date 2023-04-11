@@ -20,6 +20,19 @@ ul li {
     justify-content: space-around;
 }
 
+.main-nav-block > .main-nav > li:first-line {
+    font-style: italic;
+    font-size: 2rem;
+    color: #488f05;
+}
+
+.main-nav-block > .main-nav > li > ul > li:first-line {
+    font-style: italic;
+    font-size: 1.4rem;
+    color: #488f05;
+}
+
+
 .total {
     border: 1px solid firebrick;
     padding-top: .7rem;

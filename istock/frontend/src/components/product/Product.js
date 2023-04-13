@@ -9,13 +9,13 @@ import removeFromBasket from "../../utils/removeFromBasket";
 function Product({product}) {
     const [products, setProducts] = useContext(ProductContext);
 
-    function getAddingProducts(productId) {
+    function handleAddingProducts(productId) {
         const newProducts = addToBasket(products, productId);
         setProducts(newProducts);
         saveProducts(newProducts);
     }
 
-    function getRemovingProducts(productId) {
+    function handleRemovingProducts(productId) {
         const newProducts = removeFromBasket(products, productId);
         setProducts(newProducts);
         saveProducts(newProducts);
@@ -33,8 +33,8 @@ function Product({product}) {
                 <p>{product.price} грн</p>
             </div>
             {product.addedToBasket ?
-                <Button variant="danger" onClick={() => getRemovingProducts(product.productId)}>Видалити</Button> :
-                <Button variant="success" onClick={() => getAddingProducts(product.productId)}>До кошика</Button>}
+                <Button variant="danger" onClick={() => handleRemovingProducts(product.productId)}>Видалити</Button> :
+                <Button variant="success" onClick={() => handleAddingProducts(product.productId)}>До кошика</Button>}
         </Card>
     </Col>
 }

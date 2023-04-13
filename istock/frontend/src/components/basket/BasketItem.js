@@ -14,7 +14,7 @@ function BasketItem({product}) {
         saveProducts(newProducts);
     }
 
-    function getRemovingProducts(productId) {
+    function handleRemovingProducts(productId) {
         const newProducts = removeFromBasket(products, productId);
         setProducts(newProducts);
         saveProducts(newProducts);
@@ -36,7 +36,7 @@ function BasketItem({product}) {
             </div>
             <Badge variant="danger"
                    className={'ml-3 cursor-pointer bg-danger text-white'}
-                   onClick={() => getRemovingProducts(product.productId)}>Видалити</Badge>
+                   onClick={() => handleRemovingProducts(product.productId)}>Видалити</Badge>
         </div>
     </ListGroup.Item>
 }

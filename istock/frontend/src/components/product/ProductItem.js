@@ -11,7 +11,7 @@ function ProductItem() {
     const [product, setProduct] = useState({});
     const [products, setProducts] = useContext(ProductContext);
 
-    function getAddingProducts(productId) {
+    function handleAddingProducts(productId) {
         const newProducts = addToBasket(products, productId);
         const newProduct = newProducts.filter(product => product.productId === productId);
         setProducts(newProducts);
@@ -19,7 +19,7 @@ function ProductItem() {
         saveProducts(newProducts);
     }
 
-    function getRemovingProducts(productId) {
+    function handleRemovingProducts(productId) {
         const newProducts = removeFromBasket(products, productId);
         const newProduct = newProducts.filter(product => product.productId === productId);
         setProducts(newProducts);
@@ -52,9 +52,9 @@ function ProductItem() {
                 <Card.Text>{product.description}</Card.Text>
                 {product.addedToBasket ?
                     <Button variant="danger"
-                            onClick={() => getRemovingProducts(product.productId)}>Видалити</Button> :
+                            onClick={() => handleRemovingProducts(product.productId)}>Видалити</Button> :
                     <Button variant="success"
-                            onClick={() => getAddingProducts(product.productId)}>До кошика</Button>}
+                            onClick={() => handleAddingProducts(product.productId)}>До кошика</Button>}
             </Card.Body>
         </Card>
     </>

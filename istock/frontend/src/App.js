@@ -3,6 +3,7 @@ import ProductContext from "./context/ProductContext";
 import {useState} from "react";
 import useFetchProducts from "./context/UseFetchProducts";
 import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
 
 function App() {
     const [products, setProducts] = useState([]);
@@ -12,6 +13,7 @@ function App() {
             <ProductContext.Provider value={[products, setProducts]}>
                 <Header/>
                 <Outlet/>
+                <Footer/>
             </ProductContext.Provider>
         </>
     );

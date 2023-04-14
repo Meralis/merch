@@ -49,6 +49,12 @@ ul li {
     flex-direction: row;
 }
 
+/*.card-body {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: space-between;*/
+/*}*/
+
 .search {
     position: relative;
 }
@@ -76,4 +82,10 @@ ul li {
     z-index: 5;
     max-width: 35%;
     font-size: .8rem;
+}
+
+.footer {
+    margin-top: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }

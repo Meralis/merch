@@ -3,8 +3,10 @@ import OrderCard from "./OrderCard";
 
 function Order() {
     return <>
-        <OrderCard/>
-        <OrderForm/>
+        <div className={'order'}>
+            <OrderCard/>
+            <OrderForm/>
+        </div>
     </>
 }
 

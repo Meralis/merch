@@ -46,14 +46,14 @@ function ProductItem() {
 
     return <>
         <Card className={'productCard'}>
-            <Card.Img src={product.imageUrl} style={{height: '25rem', width: '20rem'}}/>
+            <Card.Img src={product.imageUrl} style={{height: '20rem', width: '18rem'}}/>
             <Card.Body>
                 <Card.Title><b>{product.title}</b></Card.Title>
                 <Card.Text>{product.description}</Card.Text>
                 {product.addedToBasket ?
-                    <Button variant="danger"
+                    <Button variant="danger" size={'sm'}
                             onClick={() => handleRemovingProducts(product.productId)}>Видалити</Button> :
-                    <Button variant="success"
+                    <Button variant="success" size={'sm'}
                             onClick={() => handleAddingProducts(product.productId)}>До кошика</Button>}
             </Card.Body>
         </Card>

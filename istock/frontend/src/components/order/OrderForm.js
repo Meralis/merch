@@ -1,10 +1,12 @@
 import {Button, Col, Form, Row} from "react-bootstrap";
-import React, {useCallback, useContext, useMemo, useState} from "react";
+import React, {useCallback, useContext, useEffect, useMemo, useState} from "react";
 import {getProductById} from "../../utils/getProductById";
 import ProductContext from "../../context/ProductContext";
+import clearBasket from "../../utils/clearBasket";
+import {useNavigate} from "react-router-dom";
 
 export default function OrderForm() {
-    const [products] = useContext(ProductContext);
+    const [products, setProducts] = useContext(ProductContext);
 
     const [firstName, setFirstName] = useState('');
 
@@ -16,10 +18,24 @@ export default function OrderForm() {
 
     const [address, setAddress] = useState('');
 
+    const navigate = useNavigate();
+
     const handleSubmit = useCallback((e) => {
         e.preventDefault();
-        sendOrderData(orderDTO).then(data => console.log("OrderDTO Received: ",  data));
-    }, [firstName, lastName, email, phone, address])
+        sendOrderData(orderDTO).then(data => {
+            poupOrderInfo(data.orderId);
+            const updatedProducts = clearBasket(products);
+            setProducts(updatedProducts);
+        })
+    }, [firstName, lastName, email, phone, address]);
+
+    useEffect(() => {
+        const productsInBasket = products.filter(product => product.addedToBasket);
+        if (productsInBasket.length === 0) {
+            navigate('/');
+        }
+    }, [products])
+
 
     const isSubmitActive = useMemo(() => {
         return firstName !== '' && lastName !== '' && email !== '' && phone !== '' && address !== '';
@@ -48,6 +64,19 @@ export default function OrderForm() {
         deliveryAddress: address,
         items: orderItemDTO
     };
+
+    async function sendOrderData(orderDTO) {
+        const response = await fetch('http://localhost:8080/order', {
+            method: 'PUT',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(orderDTO)
+        });
+        return await response.json();
+    }
+
+    function poupOrderInfo(orderNumber) {
+        window.alert(`Ваше замовлення N ${orderNumber} прийняте. Підтвердження відправлене Вам на електронну пошту.`);
+    }
 
     return (
         <Form onSubmit={handleSubmit}>
@@ -88,15 +117,3 @@ export default function OrderForm() {
         </Form>
     );
 }
-
-async function sendOrderData(orderDTO) {
-    const response = await fetch('http://localhost:8080/order', {
-        method: 'PUT',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(orderDTO)
-    });
-    return await response.json();
-}
-
-
-

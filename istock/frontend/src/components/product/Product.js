@@ -22,19 +22,21 @@ function Product({product}) {
     }
 
     return <Col sm={6} md={4} lg={3} className={'d-flex mt-3'}>
-        <Card className={'d-flex flex-column p-3 align-items-start'}>
-            <div className={'flex-grow-1'}>
-                <div className='text-center pt-3'>
-                    <img src={product.imageUrl} width={"140"} height={"180"} alt="photo"/>
+        <Card className={'d-flex flex-column p-3 align-items-start card'}>
+            <div className={'flex-grow-1 d-flex flex-column justify-content-between'}>
+                <div className='text-center card_body'>
+                    <img src={product.imageUrl} width={"120"} height={"140"} alt="photo"/>
+                    <Link to={`/product/${product.productId}`} className={'card_link text-left mt-2'}>
+                        <div className={'card_title'}>{product.title}</div>
+                    </Link>
                 </div>
-                <Link to={`/product/${product.productId}`}>
-                    <Card.Title>{product.title}</Card.Title>
-                </Link>
-                <p>{product.price} грн</p>
+                <div className="align-self-start">
+                    <p className={'card_price'}>{product.price} грн</p>
+                </div>
             </div>
             {product.addedToBasket ?
-                <Button variant="danger" onClick={() => handleRemovingProducts(product.productId)}>Видалити</Button> :
-                <Button variant="success" onClick={() => handleAddingProducts(product.productId)}>До кошика</Button>}
+                <Button variant="danger" size={'sm'} onClick={() => handleRemovingProducts(product.productId)}>Видалити</Button> :
+                <Button variant="success" size={'sm'} onClick={() => handleAddingProducts(product.productId)}>До кошика</Button>}
         </Card>
     </Col>
 }

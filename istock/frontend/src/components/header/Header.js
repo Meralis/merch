@@ -8,10 +8,10 @@ function Header() {
         <Navbar className={'row color-dark-theme'}>
             <Nav className="w-100 justify-content-around align-items-center">
                 <Link className={'nav-link'} to={'/'}>Istock</Link>
-                <Link className={'nav-link'} to={'/products'}>Products</Link>
+                <Link className={'nav-link'} to={'/products'}>Каталог</Link>
                 <SearchProduct className={'search'}/>
                 <BasketIcon/>
-                <Link className={'nav-link'} to={'/contacts'}>Contacts</Link>
+                <Link className={'nav-link'} to={'/delivery'}>Доставка</Link>
             </Nav>
         </Navbar>
     </>

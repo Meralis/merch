@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Products from "./components/product/Products";
 import App from "./App";
-import Contacts from "./components/static/Contacts";
+import Delivery from "./components/static/Delivery";
 import {Container} from "react-bootstrap";
 import ErrorPage from "./components/static/ErrorPage";
 import './index.css'
@@ -27,8 +27,8 @@ const router = createBrowserRouter([
                 path: "/product/:productId",
                 element: <ProductItem/>
             }, {
-                path: '/contacts',
-                element: <Contacts/>
+                path: '/delivery',
+                element: <Delivery/>
             }, {
                 path: '/order',
                 element: <Order/>
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
-        <Container className={'color-light-theme'}>
+        <Container className={'color-light-theme container'}>
             <RouterProvider router={router}/>
         </Container>
     </React.StrictMode>

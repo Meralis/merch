@@ -20,6 +20,8 @@ public class OrderService {
 
     @Value("${spring.mail.username}")
     private String from;
+    @Value("${application.mail.admin}")
+    private String adminMail;
 
     public OrderService(OrderRepository orderRepository, ClientService clientService, EmailService emailService) {
         this.orderRepository = orderRepository;
@@ -48,6 +50,14 @@ public class OrderService {
                 "Ваше замовлення №" + order.getOrderId() + " прийнято",
                 new Locale.Builder().setLanguageTag("en-US").build(),
                 order);
+
+        emailService.sendOrderConfirmation(
+                from,
+                adminMail,
+                "Замовлення №" + order.getOrderId(),
+                new Locale.Builder().setLanguageTag("en-US").build(),
+                order);
+
         return savedOrder;
     }
 }

@@ -2,7 +2,7 @@ import {ListGroup} from "react-bootstrap";
 import {useContext} from "react";
 import ProductContext from "../../context/ProductContext";
 import OrderCardItem from "./OrderCardItem";
-import Total from "../Total";
+import Total from "../common/Total";
 import {getProductById} from "../../utils/getProductById";
 
 function OrderCard() {

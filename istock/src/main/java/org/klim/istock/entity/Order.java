@@ -6,7 +6,6 @@ import org.klim.istock.model.OrderStatus;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Set;
 
 @Data
 @Entity(name = "orders")
@@ -29,10 +28,10 @@ public class Order {
     private String deliveryAddress;
 
     @OneToMany(
-        mappedBy = "order",
-        cascade = CascadeType.PERSIST,
-        orphanRemoval = true,
-        fetch = FetchType.LAZY
+            mappedBy = "order",
+            cascade = CascadeType.PERSIST,
+            orphanRemoval = true,
+            fetch = FetchType.LAZY
     )
     private List<OrderItem> items;
 }

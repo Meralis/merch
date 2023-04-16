@@ -1,7 +1,7 @@
 import {ListGroup} from "react-bootstrap";
 import BasketItem from "./BasketItem";
-import Total from "../Total";
-import RedirectToOrder from "../RedirectToOrder";
+import Total from "../common/Total";
+import RedirectToOrder from "./RedirectToOrder";
 
 function Basket({products}) {
     return <>

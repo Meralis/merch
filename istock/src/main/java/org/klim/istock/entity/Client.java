@@ -4,7 +4,6 @@ import lombok.Data;
 import org.klim.istock.model.ClientStatus;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Data
 @Entity
@@ -19,8 +18,5 @@ public class Client {
     private String lastName;
     private String email;
     private String phone;
-
-//    @OneToMany(mappedBy = "client")
-//    private Set<Order> orders;
 }
 

@@ -49,7 +49,7 @@ function ProductItem() {
             <Card.Img src={product.imageUrl} style={{height: '20rem', width: '18rem'}}/>
             <Card.Body>
                 <Card.Title><b>{product.title}</b></Card.Title>
-                <Card.Text>{product.description}</Card.Text>
+                <Card.Text className="text-justify pr-3">{product.description}</Card.Text>
                 {product.addedToBasket ?
                     <Button variant="warning" className={'text-white'} size={'sm'}
                             onClick={() => handleRemovingProducts(product.productId)}>Видалити</Button> :

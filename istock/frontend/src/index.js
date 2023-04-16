@@ -7,7 +7,7 @@ import App from "./App";
 import Delivery from "./components/static/Delivery";
 import {Container} from "react-bootstrap";
 import ErrorPage from "./components/static/ErrorPage";
-import './index.css'
+import './css/index.css'
 import ProductItem from "./components/product/ProductItem";
 import Order from "./components/order/Order";
 import Home from "./components/home/Home";

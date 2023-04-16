@@ -113,7 +113,7 @@ export default function OrderForm() {
                     <Form.Control value={address} name="address"
                                   onChange={(e) => setAddress(e.target.value)}/>
                 </Form.Group>
-                <Button variant="success" type="submit" className={'mt-4'} disabled={!isSubmitActive}>
+                <Button variant="success" type="submit" size={'sm'} className={'mt-4'} disabled={!isSubmitActive}>
                     Відправити
                 </Button>
             </Form>

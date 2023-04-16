@@ -35,8 +35,10 @@ function Product({product}) {
                 </div>
             </div>
             {product.addedToBasket ?
-                <Button variant="warning" className={'text-white'} size={'sm'} onClick={() => handleRemovingProducts(product.productId)}>Видалити</Button> :
-                <Button variant="success" size={'sm'} onClick={() => handleAddingProducts(product.productId)}>До кошика</Button>}
+                <Button variant="warning" className={'text-white'} size={'sm'}
+                        onClick={() => handleRemovingProducts(product.productId)}>Видалити</Button> :
+                <Button variant="success" size={'sm'} onClick={() => handleAddingProducts(product.productId)}>До
+                    кошика</Button>}
         </Card>
     </Col>
 }

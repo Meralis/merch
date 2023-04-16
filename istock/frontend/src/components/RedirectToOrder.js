@@ -9,7 +9,7 @@ function RedirectToOrder() {
     }
 
     return <div className={'text-center'}>
-        <Button variant={'success'} onClick={handleRedirect}>Оформити замовлення</Button>
+        <Button variant={'success'} size={'sm'} onClick={handleRedirect}>Оформити замовлення</Button>
     </div>
 }
 

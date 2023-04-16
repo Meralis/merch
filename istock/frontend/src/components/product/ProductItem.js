@@ -51,7 +51,7 @@ function ProductItem() {
                 <Card.Title><b>{product.title}</b></Card.Title>
                 <Card.Text>{product.description}</Card.Text>
                 {product.addedToBasket ?
-                    <Button variant="danger" size={'sm'}
+                    <Button variant="warning" className={'text-white'} size={'sm'}
                             onClick={() => handleRemovingProducts(product.productId)}>Видалити</Button> :
                     <Button variant="success" size={'sm'}
                             onClick={() => handleAddingProducts(product.productId)}>До кошика</Button>}

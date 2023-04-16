@@ -24,18 +24,18 @@ function BasketItem({product}) {
         {product.title} ({product.price} грн)
         <div className={'d-flex align-items-center justify-content-between'}>
             <div>
-                <Button variant={'primary'} size={'sm'}
+                <Button variant={'success'} size={'sm'}
                         onClick={() => getNewProducts(product.count - 1)}
                         disabled={product.count === 1}>-</Button>
                 <span className={'mx-2'}>{product.count}</span>
-                <Button variant={'primary'} size={'sm'}
+                <Button variant={'success'} size={'sm'}
                         onClick={() => getNewProducts(product.count + 1)}>+</Button>
             </div>
             <div>
                 <b>{(product.count * product.price)} грн</b>
             </div>
-            <Badge variant="danger"
-                   className={'ml-3 cursor-pointer bg-danger text-white'}
+            <Badge variant="warning"
+                   className={'ml-3 cursor-pointer bg-warning text-white'}
                    onClick={() => handleRemovingProducts(product.productId)}>Видалити</Badge>
         </div>
     </ListGroup.Item>

@@ -83,7 +83,7 @@
                 <artifactId>heroku-maven-plugin</artifactId>
                 <version>3.0.6</version>
                 <configuration>
-                    <appName>Istock</appName>
+                    <appName>Istock-app</appName>
                     <jdkVersion>${java.version}</jdkVersion>
                     <configVars>
                         <JAVA_OPTS>-Xss512k -XX:+UseCompressedOops</JAVA_OPTS>

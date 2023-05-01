@@ -10,7 +10,7 @@
     </parent>
     <groupId>org.klim</groupId>
     <artifactId>istock</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>istock</name>
     <description>Project</description>
     <properties>
@@ -83,14 +83,18 @@
                 <artifactId>heroku-maven-plugin</artifactId>
                 <version>3.0.6</version>
                 <configuration>
-                    <appName>Istock-app</appName>
+                    <appName>istock-app</appName>
                     <jdkVersion>${java.version}</jdkVersion>
                     <configVars>
                         <JAVA_OPTS>-Xss512k -XX:+UseCompressedOops</JAVA_OPTS>
                     </configVars>
+                    <includeTarget>false</includeTarget>
+                    <includes>
+                        <include>target/istock-1.0.0.jar</include>
+                    </includes>
                     <processTypes>
-                        <web>java $JAVA_OPTS -Dserver.port=$PORT -cp target/classes:target/dependency/*
-                            org.klim.IstockApplication
+                        <web>java $JAVA_OPTS -Dserver.port=$PORT -Dspring.profiles.active=heroku -jar
+                            target/istock-1.0.0.jar org.klim.istock.IstockApplication
                         </web>
                     </processTypes>
                 </configuration>
@@ -101,6 +105,8 @@
                 <version>1.12.0</version>
                 <configuration>
                     <workingDirectory>./frontend</workingDirectory>
+                    <nodeVersion>v18.14.0</nodeVersion>
+                    <npmVersion>9.4.2</npmVersion>
                 </configuration>
                 <executions>
                     <execution>
@@ -108,10 +114,6 @@
                         <goals>
                             <goal>install-node-and-npm</goal>
                         </goals>
-                        <configuration>
-                            <nodeVersion>v18.14.0</nodeVersion>
-                            <npmVersion>9.4.2</npmVersion>
-                        </configuration>
                     </execution>
                     <execution>
                         <id>npm install</id>
@@ -129,6 +131,28 @@
                         </goals>
                         <configuration>
                             <arguments>run build</arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <id>copy-react-build</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.outputDirectory}/static</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.basedir}/frontend/build</directory>
+                                </resource>
+                            </resources>
                         </configuration>
                     </execution>
                 </executions>

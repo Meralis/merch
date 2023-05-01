@@ -4,6 +4,7 @@ import {getProductById} from "../../utils/getProductById";
 import ProductContext from "../../context/ProductContext";
 import clearBasket from "../../utils/clearBasket";
 import {useNavigate} from "react-router-dom";
+import {API_URL} from '../../constants/constants';
 
 export default function OrderForm() {
     const [products, setProducts] = useContext(ProductContext);
@@ -66,7 +67,7 @@ export default function OrderForm() {
     };
 
     async function sendOrderData(orderDTO) {
-        const response = await fetch('http://localhost:8080/order', {
+        const response = await fetch(`${API_URL}/order`, {
             method: 'PUT',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(orderDTO)

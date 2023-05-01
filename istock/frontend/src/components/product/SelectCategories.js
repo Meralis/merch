@@ -3,6 +3,7 @@ import ChildListCategory from "./ChildListCategory";
 import Product from "./Product";
 import {Col, Row} from "react-bootstrap";
 import ProductContext from "../../context/ProductContext";
+import {API_URL} from "../../constants/constants"
 
 function SelectCategories() {
     const [products, setProducts] = useContext(ProductContext);
@@ -11,9 +12,9 @@ function SelectCategories() {
     const [productsByCategory, setProductsByCategory] = useState([]);
 
     async function sendCategoryRequest(selectedCategory) {
-        const response = await fetch('http://localhost:8080/product/category', {
+        const response = await fetch(`${API_URL}/product/category`, {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
+            // headers: {'Content-Type': 'application/json'},
             body: selectedCategory
         });
         return await response.json();
@@ -48,9 +49,8 @@ function SelectCategories() {
     }, [selectedCategory])
 
     async function sendCategoryTreeRequest() {
-        const response = await fetch('http://localhost:8080/product/categoryTree', {
+        const response = await fetch(`${API_URL}/product/categoryTree`, {
             method: 'GET',
-            headers: {'Content-Type': 'application/json'},
         });
         return await response.json();
     }

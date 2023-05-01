@@ -5,6 +5,7 @@ import ProductContext from "../../context/ProductContext";
 import addToBasket from "../../utils/addToBasket";
 import {saveProducts} from "../../utils/saveProducts";
 import removeFromBasket from "../../utils/removeFromBasket";
+import {API_URL} from "../../constants/constants"
 
 function ProductItem() {
     const {productId} = useParams();
@@ -30,7 +31,7 @@ function ProductItem() {
     useEffect(() => {
         const savedBasket = localStorage.getItem('basketItems');
         if ({productId}) {
-            fetch('http://localhost:8080/product/' + productId).then(data => data.json()).then(data => {
+            fetch(`${API_URL}/product/` + productId).then(data => data.json()).then(data => {
                 if (savedBasket) {
                     let savedItems = JSON.parse(savedBasket);
                     const savedProduct = savedItems.filter(savedItem => data.productId === savedItem.productId);

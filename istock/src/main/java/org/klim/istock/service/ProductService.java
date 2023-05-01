@@ -30,7 +30,6 @@ public class ProductService {
     @Transactional
     public List<Product> findByCategoryLike(String category) {
         category = category.contains("ROOT.") ? category.replace("ROOT.", "") : category;
-        System.out.println(category);
         return productRepository.findByCategoryLike("%" + category + "%");
     }
 

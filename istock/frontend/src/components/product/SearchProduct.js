@@ -1,11 +1,12 @@
 import {Form, FormControl, ListGroup} from "react-bootstrap";
 import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
+import {API_URL} from "../../constants/constants"
 
 async function sendSearchRequest(searchText) {
-    const response = await fetch('http://localhost:8080/product/search', {
+    const response = await fetch(`${API_URL}/product/search`, {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
+        // headers: {'Content-Type': 'application/json'},
         body: searchText
     });
     return await response.json();

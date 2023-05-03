@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import {createHashRouter, RouterProvider} from "react-router-dom";
 import Products from "./components/product/Products";
 import App from "./App";
 import Delivery from "./components/static/Delivery";
@@ -12,27 +12,27 @@ import ProductItem from "./components/product/ProductItem";
 import Order from "./components/order/Order";
 import Home from "./components/home/Home";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
     {
         path: "/",
         element: <App/>,
         errorElement: <ErrorPage/>,
         children: [{
-                path: "/",
-                element: <Home/>
-            }, {
-                path: "/products",
-                element: <Products/>
-            }, {
-                path: "/product/:productId",
-                element: <ProductItem/>
-            }, {
-                path: '/delivery',
-                element: <Delivery/>
-            }, {
-                path: '/order',
-                element: <Order/>
-            }
+            path: "/",
+            element: <Home/>
+        }, {
+            path: "/products",
+            element: <Products/>
+        }, {
+            path: "/product/:productId",
+            element: <ProductItem/>
+        }, {
+            path: '/delivery',
+            element: <Delivery/>
+        }, {
+            path: '/order',
+            element: <Order/>
+        }
         ]
     }
 ]);

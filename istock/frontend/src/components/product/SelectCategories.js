@@ -14,7 +14,6 @@ function SelectCategories() {
     async function sendCategoryRequest(selectedCategory) {
         const response = await fetch(`${API_URL}/product/category`, {
             method: 'POST',
-            // headers: {'Content-Type': 'application/json'},
             body: selectedCategory
         });
         return await response.json();

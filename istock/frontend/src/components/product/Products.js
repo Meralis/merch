@@ -5,7 +5,6 @@ import ProductContext from "../../context/ProductContext";
 
 function Products() {
     const [products] = useContext(ProductContext);
-
     return <>
         <Row>
             <Col xs={12}>

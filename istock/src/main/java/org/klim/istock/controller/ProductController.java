@@ -13,8 +13,8 @@ import java.util.Optional;
 import static java.util.stream.Collectors.toList;
 
 @RestController
-//@CrossOrigin(origins = " https://istock-app.herokuapp.com/")
-@CrossOrigin(origins = "http://localhost:8080/")
+@CrossOrigin(origins = " https://istock-app.herokuapp.com/")
+//@CrossOrigin(origins = "http://localhost:8080/")
 public class ProductController {
     private final ProductService productService;
     private final ModelMapperUtil modelMapper;
@@ -25,32 +25,27 @@ public class ProductController {
     }
 
     @GetMapping("/product")
-    @CrossOrigin(origins = "http://localhost:8080/")
     public List<ProductDTO> getAllProducts() {
         return productService.findAll().stream().map(this::toDto).collect(toList());
     }
 
     @GetMapping("/product/{id}")
-    @CrossOrigin(origins = "http://localhost:8080/")
     public ProductDTO singleProduct(
             @PathVariable(value = "id") int productId) {
         return toDto(productService.find(productId));
     }
 
     @PostMapping("/product/search")
-    @CrossOrigin(origins = "http://localhost:8080/")
     public List<ProductDTO> searchProduct(@RequestBody Optional<String> searchText) {
         return productService.searchProduct(searchText).stream().map(this::toDto).collect(toList());
     }
 
     @PostMapping("/product/category")
-    @CrossOrigin(origins = "http://localhost:8080/")
     public List<ProductDTO> findByCategory(@RequestBody String category) {
         return productService.findByCategoryLike(category).stream().map(this::toDto).collect(toList());
     }
 
     @GetMapping("/product/categoryTree")
-    @CrossOrigin(origins = "http://localhost:8080/")
     public CategoryDTO categoryDTO() {
         return productService.getCategories();
     }

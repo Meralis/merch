@@ -6,7 +6,6 @@ import {API_URL} from "../../constants/constants"
 async function sendSearchRequest(searchText) {
     const response = await fetch(`${API_URL}/product/search`, {
         method: 'POST',
-        // headers: {'Content-Type': 'application/json'},
         body: searchText
     });
     return await response.json();

@@ -1,6 +1,4 @@
-DROP TABLE IF EXISTS product;
-
-DROP SEQUENCE IF EXISTS product_seq;
+DROP TABLE IF EXISTS product cascade;
 
 CREATE SEQUENCE product_seq
     MINVALUE 1
@@ -11,7 +9,7 @@ CREATE TABLE product
 (
     product_id integer NOT NULL DEFAULT nextval('product_seq'),
     description text,
-    image_url varchar(255),
+    image_u varchar(255),
     price integer,
     title varchar(255),
     category varchar(255),

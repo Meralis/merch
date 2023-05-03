@@ -19,7 +19,6 @@ function Basket({products}) {
             </ListGroup>
         </div>
     </>
-
 }
 
 export default Basket;

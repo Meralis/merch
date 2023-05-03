@@ -93,8 +93,7 @@
                         <include>target/istock-1.0.0.jar</include>
                     </includes>
                     <processTypes>
-                        <web>java $JAVA_OPTS -Dserver.port=$PORT -Dspring.profiles.active=heroku -jar
-                            target/istock-1.0.0.jar org.klim.istock.IstockApplication
+                        <web>java $JAVA_OPTS -Dserver.port=$PORT -Dspring.profiles.active=heroku -jar target/istock-1.0.0.jar org.klim.istock.IstockApplication
                         </web>
                     </processTypes>
                 </configuration>

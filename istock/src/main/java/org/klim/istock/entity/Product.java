@@ -13,12 +13,8 @@ public class Product {
     private Integer productId;
 
     private String title;
-
     private Integer price;
-
     private String description;
-
     private String category;
-
-    private String imageUrl;
+    private String imageU;
 }

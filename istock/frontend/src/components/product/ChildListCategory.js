@@ -1,5 +1,4 @@
 function ChildListCategory({children, parentName, handleCategoryChange}) {
-
     if (!children || !children.length) {
         return null;
     }

@@ -25,7 +25,7 @@ function Product({product}) {
         <Card className={'d-flex flex-column p-3 align-items-start card'}>
             <div className={'flex-grow-1 d-flex flex-column justify-content-between'}>
                 <div className='text-center card_body'>
-                    <img src={product.imageUrl} width={"120"} height={"140"} alt="photo"/>
+                    <img src={product.imageU} width={"120"} height={"140"} alt="photo"/>
                     <Link to={`/product/${product.productId}`} className={'card_link text-left mt-2'}>
                         <div className={'card_title'}>{product.title}</div>
                     </Link>

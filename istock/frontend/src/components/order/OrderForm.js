@@ -26,6 +26,7 @@ export default function OrderForm() {
         sendOrderData(orderDTO).then(data => {
             popupOrderInfo(data.orderId);
             const updatedProducts = clearBasket(products);
+            localStorage.setItem('basketItems', JSON.stringify([]));
             setProducts(updatedProducts);
         })
     }, [firstName, lastName, email, phone, address, setPhoneError]);

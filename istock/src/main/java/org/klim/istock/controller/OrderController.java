@@ -15,8 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.mail.MessagingException;
 
 @RestController
-@CrossOrigin(origins = " https://istock-app.herokuapp.com/")
-//@CrossOrigin(origins = "http://localhost:8080/")
+@CrossOrigin(origins = "${app.url}")
 public class OrderController {
     public final ClientService clientService;
     private final OrderConverter orderConverter;

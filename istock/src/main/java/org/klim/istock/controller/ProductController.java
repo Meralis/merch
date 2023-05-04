@@ -13,8 +13,7 @@ import java.util.Optional;
 import static java.util.stream.Collectors.toList;
 
 @RestController
-@CrossOrigin(origins = " https://istock-app.herokuapp.com/")
-//@CrossOrigin(origins = "http://localhost:8080/")
+@CrossOrigin(origins = "${app.url}")
 public class ProductController {
     private final ProductService productService;
     private final ModelMapperUtil modelMapper;

@@ -16,5 +16,5 @@ public class Product {
     private Integer price;
     private String description;
     private String category;
-    private String imageU;
+    private String imageLink;
 }

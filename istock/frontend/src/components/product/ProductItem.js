@@ -47,7 +47,7 @@ function ProductItem() {
 
     return <>
         <Card className={'productCard'}>
-            <Card.Img src={product.imageU} style={{height: '20rem', width: '18rem'}}/>
+            <Card.Img src={product.imageLink} style={{height: '20rem', width: '18rem'}}/>
             <Card.Body>
                 <Card.Title><b>{product.title}</b></Card.Title>
                 <Card.Text className="text-justify pr-3">{product.description}</Card.Text>

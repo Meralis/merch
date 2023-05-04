@@ -13,7 +13,6 @@ function useFetchProducts(setProducts) {
                     const savedProduct = savedItems.filter(savedItem => product.productId === savedItem.productId);
                     product.addedToBasket = savedProduct.length > 0;
                     product.count = savedProduct.length ? savedProduct[0].count : 1;
-                    console.log("working");
                 }
                 setProducts(data);
             } else {

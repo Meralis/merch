@@ -36,7 +36,7 @@ function SearchProduct() {
         <div>
             <Form>
                 <FormControl type="text"
-                             placeholder="Пошук товарів"
+                             placeholder="Пошук"
                              className="mr-sm-2"
                              value={searchText}
                              onChange={handleSearchInputChange}

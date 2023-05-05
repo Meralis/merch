@@ -13,7 +13,7 @@ function Footer() {
                     <a href="tel:0800000000" className="footer_tel">0 800 00 00 00</a>
                     <a href="mailto:melissa001@ukr.net">melissa001@ukr.net</a>
                     <div><b>Адреса:</b></div>
-                    <span className="h6">Київ. вул. Степана Вангери, 18</span>
+                    <span className="h6">Київ. вул. Вангери, 18</span>
                 </div>
             </div>
         </div>

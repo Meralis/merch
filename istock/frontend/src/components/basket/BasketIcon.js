@@ -12,7 +12,7 @@ function BasketIcon() {
     }
 
     return <>
-        <div>
+        <div className={"basket-icon-block"}>
             <img src={"/images/basket-icon.png"} alt={"basket"} className={'basket-icon'}
                  onClick={handleShowBasket}/> <b>{productsInBasket.length}</b>
         </div>

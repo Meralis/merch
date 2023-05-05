@@ -13,6 +13,10 @@ ul li {
     list-style-type: none;
 }
 
+::placeholder {
+    font-size: 12px;
+}
+
 .color-dark-theme {
     background-color: #488f05;
 }
@@ -84,6 +88,11 @@ ul li {
     padding-left: 10px;
 }
 
+.basket-icon-block {
+    display: flex;
+    align-items: center;
+}
+
 .basket-icon {
     width: 1.5rem;
     height: 1.5rem;
@@ -102,12 +111,40 @@ ul li {
     font-size: .7rem;
 }
 
+@media (max-width: 767px) {
+    .basket-block {
+        width: 60%;
+        max-width: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .basket-block {
+        width: 100%;
+        max-width: none;
+    }
+}
+
 .order {
     width: 50%;
     margin: 0 auto;
     font-size: .8rem;
     border: 2px solid #488f05;
     padding: 0 2rem 2rem 2rem;
+}
+
+@media (max-width: 767px) {
+    .order {
+        width: 80%;
+        max-width: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .order {
+        width: 100%;
+        max-width: none;
+    }
 }
 
 .order_form {

@@ -33,8 +33,8 @@ function SearchProduct() {
     }
 
     return (
-        <div>
-            <Form>
+        <div className={'search'}>
+            <Form className={'search_form'}>
                 <FormControl type="text"
                              placeholder="Пошук"
                              className="mr-sm-2"

@@ -39,11 +39,13 @@ function ProductItem() {
                     data.count = savedProduct.length ? savedProduct[0].count : 1;
                     setProduct(data);
                 } else {
-                    setProduct(product => ({...product, addedToBasket: false, count: 1}));
+                    data.addedToBasket = false;
+                    data.count = 1;
+                    setProduct(data);
                 }
             })
         }
-    }, [productId])
+    }, [productId]);
 
     return <>
         <Card className={'productCard'}>
@@ -55,6 +57,7 @@ function ProductItem() {
                     <Card.Body>
                         <Card.Title><b>{product.title}</b></Card.Title>
                         <Card.Text className="text-justify pr-3">{product.description}</Card.Text>
+                        <Card.Text>{product.price} грн</Card.Text>
                         {product.addedToBasket ?
                             <Button variant="warning" className={'text-white'} size={'sm'}
                                     onClick={() => handleRemovingProducts(product.productId)}>Видалити</Button> :

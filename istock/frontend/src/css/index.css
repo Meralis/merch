@@ -17,12 +17,6 @@ ul li {
     font-size: 11px;
 }
 
-/*@media (max-width: 340px) {*/
-/*    .search .search_form ::placeholder {*/
-/*        display: none;*/
-/*    }*/
-/*}*/
-
 .color-dark-theme {
     background-color: #488f05;
 }
@@ -218,6 +212,12 @@ ul li {
     font-size: .9rem;
     width: 70%;
     margin: 0 auto;
+}
+
+@media (max-width: 576px) {
+    .delivery {
+        font-size: .7rem;
+    }
 }
 
 .footer {

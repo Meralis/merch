@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@CrossOrigin(origins = "${app.url}")
 public class ClientController {
     public final ClientService clientService;
     private final ModelMapperUtil modelMapper;
@@ -19,7 +20,6 @@ public class ClientController {
     }
 
     @GetMapping("/signIn")
-    @CrossOrigin
     public ClientDTO findByEmail(String email) {
         return toDto(clientService.findByEmail(email));
     }

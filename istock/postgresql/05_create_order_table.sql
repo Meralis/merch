@@ -12,6 +12,7 @@ CREATE TABLE orders (
   order_id INTEGER DEFAULT nextval('order_id_seq') NOT NULL,
   status VARCHAR(10) NOT NULL,
   created TIMESTAMPTZ,
+  comments VARCHAR(255),
   client_id INTEGER NOT NULL,
   total INTEGER,
   delivery_address VARCHAR NOT NULL,

@@ -4,7 +4,7 @@ import lombok.Data;
 import org.klim.istock.model.OrderStatus;
 
 import java.time.LocalDateTime;
-import java.util.Set;
+import java.util.List;
 
 @Data
 public class OrderDTO {
@@ -15,5 +15,5 @@ public class OrderDTO {
     private ClientDTO client;
     private Integer total;
     private String deliveryAddress;
-    private Set<OrderItemDTO> items;
+    private List<OrderItemDTO> items;
 }

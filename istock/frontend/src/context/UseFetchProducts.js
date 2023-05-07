@@ -1,11 +1,12 @@
 import {useEffect} from "react";
+import {API_URL} from '../constants/constants';
 
 function useFetchProducts(setProducts) {
     useEffect(() => {
 
         const savedBasket = localStorage.getItem('basketItems');
 
-        fetch('http://localhost:8080/product').then(data => data.json()).then(data => {
+         fetch(`${API_URL}/product`).then(data => data.json()).then(data => {
             if (savedBasket) {
                 let savedItems = JSON.parse(savedBasket);
                 for (let product of data) {

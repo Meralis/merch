@@ -19,6 +19,3 @@ CREATE TABLE client
     phone      VARCHAR(100),
     CONSTRAINT pk_client PRIMARY KEY (client_id)
 );
-
-INSERT INTO client (status, first_name, last_name, email, phone)
-VALUES ('ACTIVE', 'Lucy', 'Klim', 'mail@gmail.com', '322223');
